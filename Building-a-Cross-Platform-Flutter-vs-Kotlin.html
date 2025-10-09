@@ -91,7 +91,7 @@
     </style>
 </head>
 
-<body class="relative min-h-screen bg-gray-100 text-white">
+<body class="relative min-h-screen bg-gray-100 text-white overflow-x-hidden">
     <nav x-data="{ open: false, dropdowns: { company: false, products: false, services: false }, activeLink: '', scrolled: false }"
         x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
         class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500"
