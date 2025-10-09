@@ -392,13 +392,13 @@
 
 
     <!-- Blog Section -->
-    <section class="max-w-7xl mx-auto px-4 md:px-0 pt-[22%] md:pt-20 overflow-x-hidden" x-data="{ visible: false }"
+    <section class="max-w-7xl mx-auto px-4 md:px-0 pt-[22%] md:pt-20" x-data="{ visible: false }"
         x-init="visible = true" x-intersect.once="visible = true">
 
         <!-- Image -->
         <div class="overflow-hidden rounded-2xl shadow-xl md:mb-10">
             <img src="./assests/kotlin-vs-flutter.webp" alt="Blog Image" class="w-full object-cover"
-                :class="visible ? 'zoom-in' : 'opacity-0'" />
+                :class="visible ? 'fade-in' : 'opacity-0'" />
         </div>
 
         <!-- Meta Info -->
@@ -425,14 +425,12 @@
     </section>
 
     <style>
-        @keyframes zoomIn {
+        @keyframes fadeIn {
             0% {
-                transform: scale(1);
                 opacity: 0;
             }
 
             100% {
-                transform: scale(1.05);
                 opacity: 1;
             }
         }
@@ -449,8 +447,8 @@
             }
         }
 
-        .zoom-in {
-            animation: zoomIn 1.2s ease forwards;
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
         }
 
         .slide-up {
@@ -566,7 +564,7 @@
 
                 <!-- Social Media Share Buttons -->
                 <div class="flex items-center gap-4 pt-8">
-                    
+
                     <!-- Facebook -->
                     <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/blog-article"
                         target="_blank"
