@@ -977,6 +977,44 @@
         });
     </script>
 
+     
+<!-- WhatsApp Button -->
+<div class="fixed bottom-20 right-0 z-50 flex flex-col items-center">
+  <div id="whatsapp-tooltip" 
+       class="mb-2 px-1 mr-1 py-1 text-[#f5a222] font-bold italic text-sm opacity-0 pointer-events-none flex items-center space-x-1 transition-all duration-300">
+    <span>Click Here </span>
+    <i class="fas fa-hand-point-down"></i>
+  </div>
+  <a href="https://wa.me/916300279321" target="_blank"
+     id="whatsapp-btn"
+     class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300 relative">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+<script>
+  const whatsappBtn = document.getElementById('whatsapp-btn');
+  const tooltip = document.getElementById('whatsapp-tooltip');
+  whatsappBtn.addEventListener('mouseenter', () => {
+    tooltip.style.opacity = '1';
+    tooltip.style.transform = 'translateY(0)';
+    tooltip.style.pointerEvents = 'auto';
+  });
+  whatsappBtn.addEventListener('mouseleave', () => {
+    tooltip.style.opacity = '0';
+    tooltip.style.transform = 'translateY(10px)';
+    tooltip.style.pointerEvents = 'none';
+  });
+  whatsappBtn.addEventListener('click', () => {
+    tooltip.style.opacity = '1';
+    tooltip.style.transform = 'translateY(0)';
+    setTimeout(() => {
+      tooltip.style.opacity = '0';
+      tooltip.style.transform = 'translateY(10px)';
+    }, 2000);
+  });
+</script>
+
+
     <!-- Scroll to Top Button -->
 <button id="scrollTopBtn"
   class="fixed bottom-5 right-5 bg-[#f5a222] hover:bg-[#102e62] hover:text-[#f5a222] text-[#102e62] w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 
