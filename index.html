@@ -94,10 +94,10 @@
     <nav x-data="{ open: false, dropdowns: { company: false, products: false, services: false }, activeLink: '', scrolled: false }"
         x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
         class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500"
-        :class="scrolled ? 'bg-black darkMode:bg-white shadow-lg' : 'bg-white darkMode:bg-black'">
+        :class="scrolled ? 'bg-black shadow-lg' : 'bg-white'">
 
         <div class="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between h-16"
-            :class="scrolled ? 'text-white darkMode:text-black' : 'text-black darkMode:text-white'">
+            :class="scrolled ? 'text-white' : 'text-black'">
             <!-- Logo -->
             <a href="./" class="text-xl font-bold">
                 <img src="./assests/upscalemedia-transformed.png" alt="MyLogo" class="h-10 w-auto">
