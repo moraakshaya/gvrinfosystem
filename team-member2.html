@@ -389,14 +389,13 @@
         }
     </style>
 
-      <!--  TEAM MEMBER BANNER SECTION-->
+    <!--  TEAM MEMBER BANNER SECTION-->
     <section id="team-banner-section" class="relative w-full pt-[10%] pb-0 md:pt-[5%] overflow-hidden">
         <div class="relative z-10 max-w-6xl mx-auto px-6 pt-16 text-center">
             <p id="team-subtitle" class="italic text-black text-md md:text-lg mb-1 opacity-0 translate-y-10">
                 Team Details
             </p>
-            <h2 id="team-title"
-                class="text-2xl md:text-4xl font-bold text-[#f5a222] md:mb-10 opacity-0 translate-y-10">
+            <h2 id="team-title" class="text-2xl md:text-4xl font-bold text-[#f5a222] md:mb-10 opacity-0 translate-y-10">
                 Team Details
             </h2>
         </div>
@@ -449,7 +448,7 @@
         });
     </script>
 
-        <!--TEAM SECTION -->
+    <!--TEAM SECTION -->
     <style>
         @keyframes pulseGlow {
 
@@ -502,11 +501,12 @@
             <div class="text-white flex flex-col justify-center h-full space-y-6 md:ps-10">
                 <h2 class="text-2xl md:text-3xl font-bold text-black opacity-0 translate-y-10 transition-all duration-700"
                     id="teammemberdetail-heading">
-                   Govardhan Peluri
+                    Govardhan Peluri
                 </h2>
 
                 <ul class="space-y-3 text-md md:text-lg text-gray-800" id="teammemberdetail-keypoints">
-                    <li class="opacity-0 translate-y-10 transition-all duration-700">Responsibility: Associate Software Engineer
+                    <li class="opacity-0 translate-y-10 transition-all duration-700">Responsibility: Associate Software
+                        Engineer
                     </li>
                     <li class="opacity-0 translate-y-10 transition-all duration-700">Experience: 2 Years</li>
                     <li class="opacity-0 translate-y-10 transition-all duration-700">
@@ -560,7 +560,7 @@
     </script>
 
 
-     <!-- PROFESSIONAL SKILLS SECTION-->
+    <!-- PROFESSIONAL SKILLS SECTION-->
     <section id="teammember-section" class="relative w-full py-5 md:py-16 overflow-hidden">
         <div class="relative container mx-auto px-6 md:px-20 z-10 grid md:grid-cols-2 gap-12 text-white">
             <!-- Left: Educational Experience -->
@@ -571,7 +571,8 @@
                     Educational Experience
                 </h2>
 
-                <p id="teammemberinfo-para" class="text-md md:text-lg text-gray-800  opacity-0 translate-y-10 transition-all duration-700"
+                <p id="teammemberinfo-para"
+                    class="text-md md:text-lg text-gray-800  opacity-0 translate-y-10 transition-all duration-700"
                     data-teammemberinfo-animate="slide-up" data-teammemberinfo-delay="300">
                     Armed with a Bachelor's degree in Computer Science from the University of XYZ, I specialized in data
                     structures, algorithms, and networks. Expanding my knowledge, I pursued a Master's in Information
@@ -767,7 +768,7 @@
         rightObserver.observe(rightSection);
     </script>
 
-   <footer class="relative bg-black text-gray-300 pt-10 overflow-hidden">
+    <footer class="relative bg-black text-gray-300 pt-10 overflow-hidden">
         <div class="relative z-10">
             <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-gray-700">
                 <!-- Left: Logo + Address -->
@@ -857,7 +858,7 @@
             </div>
 
             <!-- Copyright -->
-            <div class="text-center text-sm text-gray-300 py-5">
+            <div class="text-center text-sm text-gray-300 py-5 px-1 md:px-0">
                 © 2025 GVR. All rights reserved. | Developed by Prodbiz Solutions Private Limited
             </div>
         </div>
@@ -904,71 +905,69 @@
         });
     </script>
 
-     
-<!-- WhatsApp Button -->
-<div class="fixed bottom-20 right-0 z-50 flex flex-col items-center">
-  <div id="whatsapp-tooltip" 
-       class="mb-2 px-1 mr-1 py-1 text-[#f5a222] font-bold italic text-sm opacity-0 pointer-events-none flex items-center space-x-1 transition-all duration-300">
-    <span>Click Here </span>
-    <i class="fas fa-hand-point-down"></i>
-  </div>
-  <a href="https://wa.me/916300279321" target="_blank"
-     id="whatsapp-btn"
-     class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300 relative">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
-<script>
-  const whatsappBtn = document.getElementById('whatsapp-btn');
-  const tooltip = document.getElementById('whatsapp-tooltip');
-  whatsappBtn.addEventListener('mouseenter', () => {
-    tooltip.style.opacity = '1';
-    tooltip.style.transform = 'translateY(0)';
-    tooltip.style.pointerEvents = 'auto';
-  });
-  whatsappBtn.addEventListener('mouseleave', () => {
-    tooltip.style.opacity = '0';
-    tooltip.style.transform = 'translateY(10px)';
-    tooltip.style.pointerEvents = 'none';
-  });
-  whatsappBtn.addEventListener('click', () => {
-    tooltip.style.opacity = '1';
-    tooltip.style.transform = 'translateY(0)';
-    setTimeout(() => {
-      tooltip.style.opacity = '0';
-      tooltip.style.transform = 'translateY(10px)';
-    }, 2000);
-  });
-</script>
+
+    <!-- WhatsApp Button -->
+    <div class="fixed bottom-20 right-0 z-50 flex flex-col items-center">
+        <div id="whatsapp-tooltip"
+            class="mb-2 px-1 mr-1 py-1 text-[#f5a222] font-bold italic text-sm opacity-0 pointer-events-none flex items-center space-x-1 transition-all duration-300">
+            <span>Click Here </span>
+            <i class="fas fa-hand-point-down"></i>
+        </div>
+        <a href="https://wa.me/916300279321" target="_blank" id="whatsapp-btn"
+            class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300 relative">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <script>
+        const whatsappBtn = document.getElementById('whatsapp-btn');
+        const tooltip = document.getElementById('whatsapp-tooltip');
+        whatsappBtn.addEventListener('mouseenter', () => {
+            tooltip.style.opacity = '1';
+            tooltip.style.transform = 'translateY(0)';
+            tooltip.style.pointerEvents = 'auto';
+        });
+        whatsappBtn.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = '0';
+            tooltip.style.transform = 'translateY(10px)';
+            tooltip.style.pointerEvents = 'none';
+        });
+        whatsappBtn.addEventListener('click', () => {
+            tooltip.style.opacity = '1';
+            tooltip.style.transform = 'translateY(0)';
+            setTimeout(() => {
+                tooltip.style.opacity = '0';
+                tooltip.style.transform = 'translateY(10px)';
+            }, 2000);
+        });
+    </script>
 
 
-<!-- Scroll to Top Button -->
-<button id="scrollTopBtn"
-  class="fixed bottom-5 right-5 bg-[#f5a222] hover:bg-[#102e62] hover:text-[#f5a222] text-[#102e62] w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="fixed bottom-5 right-5 bg-[#f5a222] hover:bg-[#102e62] hover:text-[#f5a222] text-[#102e62] w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 
   invisible transition-all duration-300 z-[9999]">
-  <i class="fa-solid fa-arrow-up"></i>
-</button>
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
-<script>
-  const scrollBtn = document.getElementById('scrollTopBtn');
+    <script>
+        const scrollBtn = document.getElementById('scrollTopBtn');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
-      scrollBtn.classList.remove('opacity-0', 'invisible');
-      scrollBtn.classList.add('opacity-100', 'visible');
-    } else {
-      scrollBtn.classList.add('opacity-0', 'invisible');
-      scrollBtn.classList.remove('opacity-100', 'visible');
-    }
-  });
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollBtn.classList.remove('opacity-0', 'invisible');
+                scrollBtn.classList.add('opacity-100', 'visible');
+            } else {
+                scrollBtn.classList.add('opacity-0', 'invisible');
+                scrollBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
 
-  scrollBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-</script>
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
 
 </body>

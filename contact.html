@@ -389,234 +389,240 @@
         }
     </style>
 
-   <style>
-    .fade-up, .slide-left, .slide-right {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease-out;
-    }
-    .slide-left { transform: translateX(-50px); }
-    .slide-right { transform: translateX(50px); }
-    .show { opacity: 1; transform: translate(0,0); }
-  </style>
-
-  
-<!-- CONTACT HOME BANNER SECTION -->
-<section id="contact-banner-section" class="relative w-full pt-[10%] pb-5 md:pt-[5%] overflow-hidden">
-    <div class="relative z-10 max-w-6xl mx-auto px-6 pt-16 text-center">
-        <p id="contact-subtitle" class="italic text-black font-semibold text-md md:text-lg mb-1 opacity-0 translate-y-10">
-            Get in Touch <span class="text-yellow-400">📩</span>
-        </p>
-        <h2 id="contact-title"
-            class="text-3xl md:text-4xl font-bold text-[#f5a222] md:mb-10 opacity-0 translate-y-10">
-            Contact Our Team
-        </h2>
-    </div>
-</section>
-<style>
-    @keyframes contactSlideUp {
-        0% {
-            transform: translateY(30px);
+    <style>
+        .fade-up,
+        .slide-left,
+        .slide-right {
             opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
         }
-        100% {
-            transform: translateY(0);
+
+        .slide-left {
+            transform: translateX(-50px);
+        }
+
+        .slide-right {
+            transform: translateX(50px);
+        }
+
+        .show {
             opacity: 1;
+            transform: translate(0, 0);
         }
-    }
-
-    .animate-contactSlideUp {
-        animation: contactSlideUp 0.8s ease-out forwards;
-    }
-</style>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const contactSubtitle = document.getElementById("contact-subtitle");
-        const contactTitle = document.getElementById("contact-title");
-        const contactSection = document.getElementById("contact-banner-section");
-
-        const contactObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        contactSubtitle.classList.remove("animate-contactSlideUp");
-                        contactTitle.classList.remove("animate-contactSlideUp");
-                        void contactSubtitle.offsetWidth;
-                        void contactTitle.offsetWidth;
-
-                        contactSubtitle.classList.add("animate-contactSlideUp");
-                        setTimeout(() => {
-                            contactTitle.classList.add("animate-contactSlideUp");
-                        }, 500);
-                    } else {
-                        contactSubtitle.classList.remove("animate-contactSlideUp");
-                        contactTitle.classList.remove("animate-contactSlideUp");
-                    }
-                });
-            },
-            { threshold: 0.3 }
-        );
-
-        contactObserver.observe(contactSection);
-    });
-</script>
+    </style>
 
 
-<!-- CONTACT INFORMATION SECTION -->
-<section id="contactinfo-section" class="relative w-full py-5 md:py-10 overflow-hidden">
-  <div class="relative z-10 max-w-7xl mx-auto px-6 text-center md:space-y-4">
-    <h2 class="text-2xl md:text-4xl font-bold text-black contactinfo-fade-up">Contact Us</h2>
-    <p class="text-gray-800 text-md md:text-lg contactinfo-fade-up">
-     We'd love to hear from you. Reach out to us for any inquiries or support.
-    </p>
+    <!-- CONTACT HOME BANNER SECTION -->
+    <section id="contact-banner-section" class="relative w-full pt-[10%] pb-5 md:pt-[5%] overflow-hidden">
+        <div class="relative z-10 max-w-6xl mx-auto px-6 pt-16 text-center">
+            <p id="contact-subtitle"
+                class="italic text-black font-semibold text-md md:text-lg mb-1 opacity-0 translate-y-10">
+                Get in Touch <span class="text-yellow-400">📩</span>
+            </p>
+            <h2 id="contact-title"
+                class="text-3xl md:text-4xl font-bold text-[#f5a222] md:mb-10 opacity-0 translate-y-10">
+                Contact Our Team
+            </h2>
+        </div>
+    </section>
+    <style>
+        @keyframes contactSlideUp {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
 
-    <div class="grid md:grid-cols-3 gap-6 md:pt-5">
-      <div class="contactinfo-fade-up bg-gray-800 rounded-xl p-6 shadow hover:scale-105 transition-transform">
-        <h3 class="text-xl text-[#f5a222] font-bold">Email Us</h3>
-        <p class="text-gray-300 mt-2">
-          Send us an email at
-          <a href="mailto:info@gvrinfosystems.com" class="text-[#f5a222]">info@gvrinfosystems.com</a>
-        </p>
-      </div>
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
 
-      <div class="contactinfo-slide-left bg-gray-800 rounded-xl p-6 shadow hover:scale-105 transition-transform">
-        <h3 class="text-xl text-[#f5a222] font-bold">Call Us</h3>
-        <p class="text-gray-300 mt-2">Reach us at +91 6300279339</p>
-      </div>
+        .animate-contactSlideUp {
+            animation: contactSlideUp 0.8s ease-out forwards;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const contactSubtitle = document.getElementById("contact-subtitle");
+            const contactTitle = document.getElementById("contact-title");
+            const contactSection = document.getElementById("contact-banner-section");
 
-      <div class="contactinfo-slide-right bg-gray-800 rounded-xl p-6 shadow hover:scale-105 transition-transform">
-        <h3 class="text-xl text-[#f5a222] font-bold">Visit Us</h3>
-        <p class="text-gray-300 mt-2">
-          Plot No. 3, 3rd Floor, Sri Sai Enclave, Old Bowenpally, HYDERABAD, INDIA
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-  .contactinfo-fade-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
-  }
+            const contactObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            contactSubtitle.classList.remove("animate-contactSlideUp");
+                            contactTitle.classList.remove("animate-contactSlideUp");
+                            void contactSubtitle.offsetWidth;
+                            void contactTitle.offsetWidth;
 
-  .contactinfo-slide-left {
-    opacity: 0;
-    transform: translateX(-40px);
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
-  }
+                            contactSubtitle.classList.add("animate-contactSlideUp");
+                            setTimeout(() => {
+                                contactTitle.classList.add("animate-contactSlideUp");
+                            }, 500);
+                        } else {
+                            contactSubtitle.classList.remove("animate-contactSlideUp");
+                            contactTitle.classList.remove("animate-contactSlideUp");
+                        }
+                    });
+                },
+                { threshold: 0.3 }
+            );
 
-  .contactinfo-slide-right {
-    opacity: 0;
-    transform: translateX(40px);
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
-  }
-
-  .contactinfo-visible {
-    opacity: 1 !important;
-    transform: translateX(0) translateY(0) !important;
-  }
-</style>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const contactinfoObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const children = entry.target.querySelectorAll(
-            ".contactinfo-fade-up, .contactinfo-slide-left, .contactinfo-slide-right"
-          );
-
-          if (entry.isIntersecting) {
-            children.forEach((el, i) => {
-              setTimeout(() => {
-                el.classList.add("contactinfo-visible");
-              }, i * 200);
-            });
-          } else {
-            children.forEach((el) => {
-              el.classList.remove("contactinfo-visible");
-            });
-          }
+            contactObserver.observe(contactSection);
         });
-      },
-      { threshold: 0.3 }
-    );
-
-    contactinfoObserver.observe(document.querySelector("#contactinfo-section"));
-  });
-</script>
+    </script>
 
 
-  <!-- CONTACT FORM SECTION -->
-<section id="contactform-section" class="relative w-full pb-5 overflow-hidden">
-  <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
-    <h2 class="text-2xl md:text-3xl font-bold text-black contactform-fade-up mb-2">Send Us a Message</h2>
-    <p class="text-gray-800 text-lg contactform-fade-up mb-2 md:mb-6">
-      Fill out the form below, and we'll get back to you as soon as possible.
-    </p>
+    <!-- CONTACT INFORMATION SECTION -->
+    <section id="contactinfo-section" class="relative w-full py-5 md:py-10 overflow-hidden">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center md:space-y-4">
+            <h2 class="text-2xl md:text-4xl font-bold text-black contactinfo-fade-up">Contact Us</h2>
+            <p class="text-gray-800 text-md md:text-lg contactinfo-fade-up">
+                We'd love to hear from you. Reach out to us for any inquiries or support.
+            </p>
 
-    <form class="space-y-4 contactform-fade-up  p-8 rounded-2xl shadow-[0_0_5px_#000] max-w-lg mx-auto">
-      <input 
-        type="text" 
-        placeholder="Your Name" 
-        class="w-full p-3 rounded-lg bg-[#102e62] text-white border border-[#102e62] focus:outline-none focus:border-[#102e62]"
-      >
-      <input 
-        type="email" 
-        placeholder="Your Email" 
-        class="w-full p-3 rounded-lg bg-[#102e62] text-white border border-[#102e62] focus:outline-none focus:border-[#102e62]"
-      >
-      <textarea 
-        placeholder="Your Message" 
-        class="w-full p-3 rounded-lg bg-[#102e62] text-white border border-[#102e62] focus:outline-none focus:border-[#102e62]"
-      ></textarea>
-      <button 
-        type="submit" 
-        class="bg-[#f5a222] text-black font-semibold px-3 py-1 md:px-6 md:py-3 rounded-lg hover:text-[#f5a222] hover:bg-transparent border border-[#f5a222] transition-all"
-      >
-        Send Message
-      </button>
-    </form>
-  </div>
-</section>
-<style>
-  .contactform-fade-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
-  }
+            <div class="grid md:grid-cols-3 gap-6 md:pt-5">
+                <div class="contactinfo-fade-up bg-gray-800 rounded-xl p-6 shadow hover:scale-105 transition-transform">
+                    <h3 class="text-xl text-[#f5a222] font-bold">Email Us</h3>
+                    <p class="text-gray-300 mt-2">
+                        Send us an email at
+                        <a href="mailto:info@gvrinfosystems.com" class="text-[#f5a222]">info@gvrinfosystems.com</a>
+                    </p>
+                </div>
 
-  .contactform-visible {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-  }
-</style>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const contactformObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const children = entry.target.querySelectorAll(".contactform-fade-up");
+                <div
+                    class="contactinfo-slide-left bg-gray-800 rounded-xl p-6 shadow hover:scale-105 transition-transform">
+                    <h3 class="text-xl text-[#f5a222] font-bold">Call Us</h3>
+                    <p class="text-gray-300 mt-2">Reach us at +91 6300279339</p>
+                </div>
 
-          if (entry.isIntersecting) {
-            children.forEach((el, i) => {
-              setTimeout(() => {
-                el.classList.add("contactform-visible");
-              }, i * 200);
-            });
-          } else {
-            children.forEach((el) => {
-              el.classList.remove("contactform-visible");
-            });
-          }
+                <div
+                    class="contactinfo-slide-right bg-gray-800 rounded-xl p-6 shadow hover:scale-105 transition-transform">
+                    <h3 class="text-xl text-[#f5a222] font-bold">Visit Us</h3>
+                    <p class="text-gray-300 mt-2">
+                        Plot No. 3, 3rd Floor, Sri Sai Enclave, Old Bowenpally, HYDERABAD, INDIA
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .contactinfo-fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
+        }
+
+        .contactinfo-slide-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
+        }
+
+        .contactinfo-slide-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
+        }
+
+        .contactinfo-visible {
+            opacity: 1 !important;
+            transform: translateX(0) translateY(0) !important;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const contactinfoObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        const children = entry.target.querySelectorAll(
+                            ".contactinfo-fade-up, .contactinfo-slide-left, .contactinfo-slide-right"
+                        );
+
+                        if (entry.isIntersecting) {
+                            children.forEach((el, i) => {
+                                setTimeout(() => {
+                                    el.classList.add("contactinfo-visible");
+                                }, i * 200);
+                            });
+                        } else {
+                            children.forEach((el) => {
+                                el.classList.remove("contactinfo-visible");
+                            });
+                        }
+                    });
+                },
+                { threshold: 0.3 }
+            );
+
+            contactinfoObserver.observe(document.querySelector("#contactinfo-section"));
         });
-      },
-      { threshold: 0.3 }
-    );
+    </script>
 
-    contactformObserver.observe(document.querySelector("#contactform-section"));
-  });
-</script>
+
+    <!-- CONTACT FORM SECTION -->
+    <section id="contactform-section" class="relative w-full pb-5 overflow-hidden">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-black contactform-fade-up mb-2">Send Us a Message</h2>
+            <p class="text-gray-800 text-lg contactform-fade-up mb-2 md:mb-6">
+                Fill out the form below, and we'll get back to you as soon as possible.
+            </p>
+
+            <form class="space-y-4 contactform-fade-up  p-8 rounded-2xl shadow-[0_0_5px_#000] max-w-lg mx-auto">
+                <input type="text" placeholder="Your Name"
+                    class="w-full p-3 rounded-lg bg-[#102e62] text-white border border-[#102e62] focus:outline-none focus:border-[#102e62]">
+                <input type="email" placeholder="Your Email"
+                    class="w-full p-3 rounded-lg bg-[#102e62] text-white border border-[#102e62] focus:outline-none focus:border-[#102e62]">
+                <textarea placeholder="Your Message"
+                    class="w-full p-3 rounded-lg bg-[#102e62] text-white border border-[#102e62] focus:outline-none focus:border-[#102e62]"></textarea>
+                <button type="submit"
+                    class="bg-[#f5a222] text-black font-semibold px-3 py-1 md:px-6 md:py-3 rounded-lg hover:text-[#f5a222] hover:bg-transparent border border-[#f5a222] transition-all">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+    <style>
+        .contactform-fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
+        }
+
+        .contactform-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const contactformObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        const children = entry.target.querySelectorAll(".contactform-fade-up");
+
+                        if (entry.isIntersecting) {
+                            children.forEach((el, i) => {
+                                setTimeout(() => {
+                                    el.classList.add("contactform-visible");
+                                }, i * 200);
+                            });
+                        } else {
+                            children.forEach((el) => {
+                                el.classList.remove("contactform-visible");
+                            });
+                        }
+                    });
+                },
+                { threshold: 0.3 }
+            );
+
+            contactformObserver.observe(document.querySelector("#contactform-section"));
+        });
+    </script>
 
 
 
@@ -711,7 +717,7 @@
             </div>
 
             <!-- Copyright -->
-            <div class="text-center text-sm text-gray-300 py-5">
+            <div class="text-center text-sm text-gray-300 py-5 px-1 md:px-0">
                 © 2025 GVR. All rights reserved. | Developed by Prodbiz Solutions Private Limited
             </div>
         </div>
@@ -758,71 +764,69 @@
         });
     </script>
 
-     
-<!-- WhatsApp Button -->
-<div class="fixed bottom-20 right-0 z-50 flex flex-col items-center">
-  <div id="whatsapp-tooltip" 
-       class="mb-2 px-1 mr-1 py-1 text-[#f5a222] font-bold italic text-sm opacity-0 pointer-events-none flex items-center space-x-1 transition-all duration-300">
-    <span>Click Here </span>
-    <i class="fas fa-hand-point-down"></i>
-  </div>
-  <a href="https://wa.me/916300279321" target="_blank"
-     id="whatsapp-btn"
-     class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300 relative">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
-<script>
-  const whatsappBtn = document.getElementById('whatsapp-btn');
-  const tooltip = document.getElementById('whatsapp-tooltip');
-  whatsappBtn.addEventListener('mouseenter', () => {
-    tooltip.style.opacity = '1';
-    tooltip.style.transform = 'translateY(0)';
-    tooltip.style.pointerEvents = 'auto';
-  });
-  whatsappBtn.addEventListener('mouseleave', () => {
-    tooltip.style.opacity = '0';
-    tooltip.style.transform = 'translateY(10px)';
-    tooltip.style.pointerEvents = 'none';
-  });
-  whatsappBtn.addEventListener('click', () => {
-    tooltip.style.opacity = '1';
-    tooltip.style.transform = 'translateY(0)';
-    setTimeout(() => {
-      tooltip.style.opacity = '0';
-      tooltip.style.transform = 'translateY(10px)';
-    }, 2000);
-  });
-</script>
+
+    <!-- WhatsApp Button -->
+    <div class="fixed bottom-20 right-0 z-50 flex flex-col items-center">
+        <div id="whatsapp-tooltip"
+            class="mb-2 px-1 mr-1 py-1 text-[#f5a222] font-bold italic text-sm opacity-0 pointer-events-none flex items-center space-x-1 transition-all duration-300">
+            <span>Click Here </span>
+            <i class="fas fa-hand-point-down"></i>
+        </div>
+        <a href="https://wa.me/916300279321" target="_blank" id="whatsapp-btn"
+            class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300 relative">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <script>
+        const whatsappBtn = document.getElementById('whatsapp-btn');
+        const tooltip = document.getElementById('whatsapp-tooltip');
+        whatsappBtn.addEventListener('mouseenter', () => {
+            tooltip.style.opacity = '1';
+            tooltip.style.transform = 'translateY(0)';
+            tooltip.style.pointerEvents = 'auto';
+        });
+        whatsappBtn.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = '0';
+            tooltip.style.transform = 'translateY(10px)';
+            tooltip.style.pointerEvents = 'none';
+        });
+        whatsappBtn.addEventListener('click', () => {
+            tooltip.style.opacity = '1';
+            tooltip.style.transform = 'translateY(0)';
+            setTimeout(() => {
+                tooltip.style.opacity = '0';
+                tooltip.style.transform = 'translateY(10px)';
+            }, 2000);
+        });
+    </script>
 
 
     <!-- Scroll to Top Button -->
-<button id="scrollTopBtn"
-  class="fixed bottom-5 right-5 bg-[#f5a222] hover:bg-[#102e62] hover:text-[#f5a222] text-[#102e62] w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 
+    <button id="scrollTopBtn" class="fixed bottom-5 right-5 bg-[#f5a222] hover:bg-[#102e62] hover:text-[#f5a222] text-[#102e62] w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 
   invisible transition-all duration-300 z-[9999]">
-  <i class="fa-solid fa-arrow-up"></i>
-</button>
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
-<script>
-  const scrollBtn = document.getElementById('scrollTopBtn');
+    <script>
+        const scrollBtn = document.getElementById('scrollTopBtn');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
-      scrollBtn.classList.remove('opacity-0', 'invisible');
-      scrollBtn.classList.add('opacity-100', 'visible');
-    } else {
-      scrollBtn.classList.add('opacity-0', 'invisible');
-      scrollBtn.classList.remove('opacity-100', 'visible');
-    }
-  });
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollBtn.classList.remove('opacity-0', 'invisible');
+                scrollBtn.classList.add('opacity-100', 'visible');
+            } else {
+                scrollBtn.classList.add('opacity-0', 'invisible');
+                scrollBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
 
-  scrollBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-</script>
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
 
 

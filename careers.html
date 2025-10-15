@@ -666,84 +666,94 @@
 
     <section class="max-w-4xl mx-auto px-4 py-5 text-center space-y-2 md:space-y-4 section-journey">
 
-  <!-- Heading -->
-  <h2 class="text-2xl md:text-4xl font-bold text-gray-900 section-journey-heading">You Are Here</h2>
+        <!-- Heading -->
+        <h2 class="text-2xl md:text-4xl font-bold text-gray-900 section-journey-heading">You Are Here</h2>
 
-  <!-- Subheading -->
-  <h3 class="text-xl md:text-2xl font-semibold text-[#f5a222] section-journey-subheading">Let's Start</h3>
+        <!-- Subheading -->
+        <h3 class="text-xl md:text-2xl font-semibold text-[#f5a222] section-journey-subheading">Let's Start</h3>
 
-  <!-- Description -->
-  <p class="text-gray-600 text-md md:text-xl section-journey-description">Initiating Your Journey to Success and Growth.</p>
+        <!-- Description -->
+        <p class="text-gray-600 text-md md:text-xl section-journey-description">Initiating Your Journey to Success and
+            Growth.</p>
 
-  <!-- Steps -->
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-6 md:mt-12 section-journey-steps">
-    
-    <!-- Step 1 -->
-    <div class="flex flex-col items-center p-6 bg-[#f5a222] rounded-lg shadow section-journey-step">
-      <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[#102e62] text-white font-bold text-lg">01</div>
-      <h4 class="mt-4 font-semibold text-gray-900">Share your requirements</h4>
-    </div>
+        <!-- Steps -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-6 md:mt-12 section-journey-steps">
 
-    <!-- Step 2 -->
-    <div class="flex flex-col items-center p-6 bg-[#f5a222] rounded-lg shadow section-journey-step">
-      <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[#102e62] text-white font-bold text-lg">02</div>
-      <h4 class="mt-4 font-semibold text-gray-900">Discuss them with our experts</h4>
-    </div>
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center p-6 bg-[#f5a222] rounded-lg shadow section-journey-step">
+                <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-[#102e62] text-white font-bold text-lg">
+                    01</div>
+                <h4 class="mt-4 font-semibold text-gray-900">Share your requirements</h4>
+            </div>
 
-    <!-- Step 3 -->
-    <div class="flex flex-col items-center p-6 bg-[#f5a222] rounded-lg shadow section-journey-step">
-      <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[#102e62] text-white font-bold text-lg">03</div>
-      <h4 class="mt-4 font-semibold text-gray-900">Get a free quote</h4>
-    </div>
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center p-6 bg-[#f5a222] rounded-lg shadow section-journey-step">
+                <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-[#102e62] text-white font-bold text-lg">
+                    02</div>
+                <h4 class="mt-4 font-semibold text-gray-900">Discuss them with our experts</h4>
+            </div>
 
-    <!-- Step 4 -->
-    <div class="flex flex-col items-center p-6 bg-[#f5a222] rounded-lg shadow section-journey-step">
-      <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[#102e62] text-white font-bold text-lg">04</div>
-      <h4 class="mt-4 font-semibold text-gray-900">Start the project</h4>
-    </div>
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center p-6 bg-[#f5a222] rounded-lg shadow section-journey-step">
+                <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-[#102e62] text-white font-bold text-lg">
+                    03</div>
+                <h4 class="mt-4 font-semibold text-gray-900">Get a free quote</h4>
+            </div>
 
-  </div>
+            <!-- Step 4 -->
+            <div class="flex flex-col items-center p-6 bg-[#f5a222] rounded-lg shadow section-journey-step">
+                <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-[#102e62] text-white font-bold text-lg">
+                    04</div>
+                <h4 class="mt-4 font-semibold text-gray-900">Start the project</h4>
+            </div>
 
-</section>
+        </div>
 
-<!-- JS for Section-Specific Staggered Animation -->
-<script>
-  const journeyElements = document.querySelectorAll('.section-journey-heading, .section-journey-subheading, .section-journey-description, .section-journey-step');
+    </section>
 
-  const journeyObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        // Get all elements in order
-        journeyElements.forEach((el, index) => {
-          setTimeout(() => {
-            el.classList.add('section-journey-visible');
-          }, index * 150); // stagger delay: 150ms
+    <!-- JS for Section-Specific Staggered Animation -->
+    <script>
+        const journeyElements = document.querySelectorAll('.section-journey-heading, .section-journey-subheading, .section-journey-description, .section-journey-step');
+
+        const journeyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Get all elements in order
+                    journeyElements.forEach((el, index) => {
+                        setTimeout(() => {
+                            el.classList.add('section-journey-visible');
+                        }, index * 150); // stagger delay: 150ms
+                    });
+                } else {
+                    // Remove visible class when section leaves viewport to repeat animation
+                    journeyElements.forEach(el => el.classList.remove('section-journey-visible'));
+                }
+            });
+        }, { threshold: 0.2 });
+
+        journeyElements.forEach(el => {
+            el.classList.add('section-journey-init'); // initial hidden state
+            journeyObserver.observe(el);
         });
-      } else {
-        // Remove visible class when section leaves viewport to repeat animation
-        journeyElements.forEach(el => el.classList.remove('section-journey-visible'));
-      }
-    });
-  }, { threshold: 0.2 });
+    </script>
 
-  journeyElements.forEach(el => {
-    el.classList.add('section-journey-init'); // initial hidden state
-    journeyObserver.observe(el);
-  });
-</script>
+    <!-- Tailwind Custom CSS -->
+    <style>
+        .section-journey-init {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s ease-out;
+        }
 
-<!-- Tailwind Custom CSS -->
-<style>
-  .section-journey-init {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.7s ease-out;
-  }
-  .section-journey-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
+        .section-journey-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 
     <!-- Join Our Team Section -->
     <section id="join-team"
@@ -752,7 +762,8 @@
         <!-- Centered Form -->
         <form class="space-y-4 join-fade-up bg-transparent p-8 rounded-2xl shadow-[0_0_5px_#333] max-w-lg w-full">
             <h2 class="text-3xl md:text-4xl font-bold text-white text-center">Let's Connect!</h2>
-            <p class="text-gray-300 text-md md:text-lg text-center">Send us a message, and we'll promptly discuss your project with you.</p>
+            <p class="text-gray-300 text-md md:text-lg text-center">Send us a message, and we'll promptly discuss your
+                project with you.</p>
             <input type="text" placeholder="Your Name"
                 class="input-field join-scroll-letter w-full p-3 rounded-md bg-gray-700 text-gray-200 focus:outline-none">
             <input type="email" placeholder="Your Email"
@@ -903,7 +914,7 @@
             </div>
 
             <!-- Copyright -->
-            <div class="text-center text-sm text-gray-300 py-5">
+            <div class="text-center text-sm text-gray-300 py-5 px-1 md:px-0">
                 © 2025 GVR. All rights reserved. | Developed by Prodbiz Solutions Private Limited
             </div>
         </div>
@@ -950,42 +961,41 @@
         });
     </script>
 
-     
-<!-- WhatsApp Button -->
-<div class="fixed bottom-20 right-0 z-50 flex flex-col items-center">
-  <div id="whatsapp-tooltip" 
-       class="mb-2 px-1 mr-1 py-1 text-[#f5a222] font-bold italic text-sm opacity-0 pointer-events-none flex items-center space-x-1 transition-all duration-300">
-    <span>Click Here </span>
-    <i class="fas fa-hand-point-down"></i>
-  </div>
-  <a href="https://wa.me/916300279321" target="_blank"
-     id="whatsapp-btn"
-     class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300 relative">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
-<script>
-  const whatsappBtn = document.getElementById('whatsapp-btn');
-  const tooltip = document.getElementById('whatsapp-tooltip');
-  whatsappBtn.addEventListener('mouseenter', () => {
-    tooltip.style.opacity = '1';
-    tooltip.style.transform = 'translateY(0)';
-    tooltip.style.pointerEvents = 'auto';
-  });
-  whatsappBtn.addEventListener('mouseleave', () => {
-    tooltip.style.opacity = '0';
-    tooltip.style.transform = 'translateY(10px)';
-    tooltip.style.pointerEvents = 'none';
-  });
-  whatsappBtn.addEventListener('click', () => {
-    tooltip.style.opacity = '1';
-    tooltip.style.transform = 'translateY(0)';
-    setTimeout(() => {
-      tooltip.style.opacity = '0';
-      tooltip.style.transform = 'translateY(10px)';
-    }, 2000);
-  });
-</script>
+
+    <!-- WhatsApp Button -->
+    <div class="fixed bottom-20 right-0 z-50 flex flex-col items-center">
+        <div id="whatsapp-tooltip"
+            class="mb-2 px-1 mr-1 py-1 text-[#f5a222] font-bold italic text-sm opacity-0 pointer-events-none flex items-center space-x-1 transition-all duration-300">
+            <span>Click Here </span>
+            <i class="fas fa-hand-point-down"></i>
+        </div>
+        <a href="https://wa.me/916300279321" target="_blank" id="whatsapp-btn"
+            class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300 relative">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <script>
+        const whatsappBtn = document.getElementById('whatsapp-btn');
+        const tooltip = document.getElementById('whatsapp-tooltip');
+        whatsappBtn.addEventListener('mouseenter', () => {
+            tooltip.style.opacity = '1';
+            tooltip.style.transform = 'translateY(0)';
+            tooltip.style.pointerEvents = 'auto';
+        });
+        whatsappBtn.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = '0';
+            tooltip.style.transform = 'translateY(10px)';
+            tooltip.style.pointerEvents = 'none';
+        });
+        whatsappBtn.addEventListener('click', () => {
+            tooltip.style.opacity = '1';
+            tooltip.style.transform = 'translateY(0)';
+            setTimeout(() => {
+                tooltip.style.opacity = '0';
+                tooltip.style.transform = 'translateY(10px)';
+            }, 2000);
+        });
+    </script>
 
 
     <!-- Scroll to Top Button -->

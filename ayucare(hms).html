@@ -627,131 +627,131 @@
   </script>
 
   <!-- Image + Content Section with Diagonal Background -->
-<section id="why-ayucare" class="relative py-5 md:py-10 overflow-hidden">
-  <div class="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-8 px-6 items-center">
+  <section id="why-ayucare" class="relative py-5 md:py-10 overflow-hidden">
+    <div class="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-8 px-6 items-center">
 
-    <!-- Left: Text -->
-    <div class="fade-left space-y-4 text-gray-300 md:pl-[20%]">
-      <h2 class="text-2xl md:text-4xl font-bold text-black">Why Ayucare HMS?</h2>
-      <ul id="stagger-list" class="list-disc pl-5 text-md md:text-lg space-y-2 text-gray-800">
-        <li>Secure & Compliant Patient Data</li>
-        <li>Real-time Reports & Analytics</li>
-        <li>Customizable Modules for any Hospital Size</li>
-        <li>Multi-platform access (Web & Mobile)</li>
-      </ul>
+      <!-- Left: Text -->
+      <div class="fade-left space-y-4 text-gray-300 md:pl-[20%]">
+        <h2 class="text-2xl md:text-4xl font-bold text-black">Why Ayucare HMS?</h2>
+        <ul id="stagger-list" class="list-disc pl-5 text-md md:text-lg space-y-2 text-gray-800">
+          <li>Secure & Compliant Patient Data</li>
+          <li>Real-time Reports & Analytics</li>
+          <li>Customizable Modules for any Hospital Size</li>
+          <li>Multi-platform access (Web & Mobile)</li>
+        </ul>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="fade-right flex justify-center">
+        <img src="./assests/Hospital-Management-System.jpg" alt="Hospital Dashboard"
+          class="rounded-xl shadow-lg w-full md:w-[90%]">
+      </div>
+
     </div>
+  </section>
 
-    <!-- Right: Image -->
-    <div class="fade-right flex justify-center">
-      <img src="./assests/Hospital-Management-System.jpg" alt="Hospital Dashboard"
-        class="rounded-xl shadow-lg w-full md:w-[90%]">
-    </div>
+  <style>
+    .fade-left,
+    .fade-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 1s ease-out;
+    }
 
-  </div>
-</section>
+    .fade-left {
+      transform: translateX(-50px);
+    }
 
-<style>
-  .fade-left,
-  .fade-right {
-    opacity: 0;
-    transform: translateX(50px);
-    transition: all 1s ease-out;
-  }
+    .fade-left.show,
+    .fade-right.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
 
-  .fade-left {
-    transform: translateX(-50px);
-  }
+    #stagger-list li {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
 
-  .fade-left.show,
-  .fade-right.show {
-    opacity: 1;
-    transform: translateX(0);
-  }
+    #stagger-list li.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 
-  #stagger-list li {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease-out;
-  }
+  <script>
+    const fadeElements = document.querySelectorAll('.fade-left, .fade-right');
+    const list = document.querySelector('#stagger-list');
+    const listItems = list.querySelectorAll('li');
 
-  #stagger-list li.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
+    // Fade-left and fade-right animation
+    const fadeObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show'); // animate again when re-entered
+        }
+      });
+    }, { threshold: 0.3 });
 
-<script>
-  const fadeElements = document.querySelectorAll('.fade-left, .fade-right');
-  const list = document.querySelector('#stagger-list');
-  const listItems = list.querySelectorAll('li');
+    fadeElements.forEach(el => fadeObserver.observe(el));
 
-  // Fade-left and fade-right animation
-  const fadeObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      } else {
-        entry.target.classList.remove('show'); // animate again when re-entered
-      }
-    });
-  }, { threshold: 0.3 });
+    // Staggered list animation
+    const listObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          listItems.forEach((item, index) => {
+            setTimeout(() => item.classList.add('show'), index * 200);
+          });
+        } else {
+          listItems.forEach(item => item.classList.remove('show')); // reset when out of view
+        }
+      });
+    }, { threshold: 0.4 });
 
-  fadeElements.forEach(el => fadeObserver.observe(el));
-
-  // Staggered list animation
-  const listObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        listItems.forEach((item, index) => {
-          setTimeout(() => item.classList.add('show'), index * 200);
-        });
-      } else {
-        listItems.forEach(item => item.classList.remove('show')); // reset when out of view
-      }
-    });
-  }, { threshold: 0.4 });
-
-  listObserver.observe(list);
-</script>
+    listObserver.observe(list);
+  </script>
 
 
   <!-- Request Demo Section -->
-<section id="requestdemo-section"
-  class="relative w-full py-10 md:py-20 px-4 bg-[#102e62] md:rounded-t-[50%] flex justify-center items-center overflow-hidden">
-  
-  <div id="requestdemo-form" 
-       class="opacity-0 translate-y-10 bg-none p-6 md:p-10 rounded-2xl shadow-xl max-w-lg w-full transition-all duration-700 ease-out">
-    <h2 class="text-3xl font-bold text-white mb-6 text-center">Request a Demo</h2>
-    <form class="space-y-4">
-      <input type="text" placeholder="Your Name"
-        class="w-full p-3 rounded-lg bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:border-yellow-400">
-      <input type="email" placeholder="Email"
-        class="w-full p-3 rounded-lg bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:border-yellow-400">
-      <input type="text" placeholder="Hospital Name"
-        class="w-full p-3 rounded-lg bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:border-yellow-400">
-      <textarea placeholder="Message"
-        class="w-full p-3 rounded-lg bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:border-yellow-400"></textarea>
-      <button type="submit"
-        class="bg-[#f5a222] text-black font-semibold px-6 py-3 rounded-lg hover:text-white hover:bg-[#102e62] transition-all w-full">Submit</button>
-    </form>
-  </div>
-</section>
-<script>
-  const form = document.querySelector('#requestdemo-form');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        form.classList.remove('opacity-0', 'translate-y-10');
-        form.classList.add('opacity-100', 'translate-y-0');
-      } else {
-        form.classList.add('opacity-0', 'translate-y-10');
-        form.classList.remove('opacity-100', 'translate-y-0');
-      }
-    });
-  }, { threshold: 0.3 });
+  <section id="requestdemo-section"
+    class="relative w-full py-10 md:py-20 px-4 bg-[#102e62] md:rounded-t-[50%] flex justify-center items-center overflow-hidden">
 
-  observer.observe(form);
-</script>
+    <div id="requestdemo-form"
+      class="opacity-0 translate-y-10 bg-none p-6 md:p-10 rounded-2xl shadow-xl max-w-lg w-full transition-all duration-700 ease-out">
+      <h2 class="text-3xl font-bold text-white mb-6 text-center">Request a Demo</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Your Name"
+          class="w-full p-3 rounded-lg bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:border-yellow-400">
+        <input type="email" placeholder="Email"
+          class="w-full p-3 rounded-lg bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:border-yellow-400">
+        <input type="text" placeholder="Hospital Name"
+          class="w-full p-3 rounded-lg bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:border-yellow-400">
+        <textarea placeholder="Message"
+          class="w-full p-3 rounded-lg bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:border-yellow-400"></textarea>
+        <button type="submit"
+          class="bg-[#f5a222] text-black font-semibold px-6 py-3 rounded-lg hover:text-white hover:bg-[#102e62] transition-all w-full">Submit</button>
+      </form>
+    </div>
+  </section>
+  <script>
+    const form = document.querySelector('#requestdemo-form');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          form.classList.remove('opacity-0', 'translate-y-10');
+          form.classList.add('opacity-100', 'translate-y-0');
+        } else {
+          form.classList.add('opacity-0', 'translate-y-10');
+          form.classList.remove('opacity-100', 'translate-y-0');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(form);
+  </script>
 
 
 
@@ -864,7 +864,7 @@
       </div>
 
       <!-- Copyright -->
-      <div class="text-center text-sm text-gray-300 py-5">
+      <div class="text-center text-sm text-gray-300 py-5 px-1 md:px-0">
         © 2025 GVR. All rights reserved. | Developed by Prodbiz Solutions Private Limited
       </div>
     </div>
@@ -911,71 +911,69 @@
     });
   </script>
 
-   
-<!-- WhatsApp Button -->
-<div class="fixed bottom-20 right-0 z-50 flex flex-col items-center">
-  <div id="whatsapp-tooltip" 
-       class="mb-2 px-1 mr-1 py-1 text-[#f5a222] font-bold italic text-sm opacity-0 pointer-events-none flex items-center space-x-1 transition-all duration-300">
-    <span>Click Here </span>
-    <i class="fas fa-hand-point-down"></i>
+
+  <!-- WhatsApp Button -->
+  <div class="fixed bottom-20 right-0 z-50 flex flex-col items-center">
+    <div id="whatsapp-tooltip"
+      class="mb-2 px-1 mr-1 py-1 text-[#f5a222] font-bold italic text-sm opacity-0 pointer-events-none flex items-center space-x-1 transition-all duration-300">
+      <span>Click Here </span>
+      <i class="fas fa-hand-point-down"></i>
+    </div>
+    <a href="https://wa.me/916300279321" target="_blank" id="whatsapp-btn"
+      class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300 relative">
+      <i class="fab fa-whatsapp"></i>
+    </a>
   </div>
-  <a href="https://wa.me/916300279321" target="_blank"
-     id="whatsapp-btn"
-     class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300 relative">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
-<script>
-  const whatsappBtn = document.getElementById('whatsapp-btn');
-  const tooltip = document.getElementById('whatsapp-tooltip');
-  whatsappBtn.addEventListener('mouseenter', () => {
-    tooltip.style.opacity = '1';
-    tooltip.style.transform = 'translateY(0)';
-    tooltip.style.pointerEvents = 'auto';
-  });
-  whatsappBtn.addEventListener('mouseleave', () => {
-    tooltip.style.opacity = '0';
-    tooltip.style.transform = 'translateY(10px)';
-    tooltip.style.pointerEvents = 'none';
-  });
-  whatsappBtn.addEventListener('click', () => {
-    tooltip.style.opacity = '1';
-    tooltip.style.transform = 'translateY(0)';
-    setTimeout(() => {
+  <script>
+    const whatsappBtn = document.getElementById('whatsapp-btn');
+    const tooltip = document.getElementById('whatsapp-tooltip');
+    whatsappBtn.addEventListener('mouseenter', () => {
+      tooltip.style.opacity = '1';
+      tooltip.style.transform = 'translateY(0)';
+      tooltip.style.pointerEvents = 'auto';
+    });
+    whatsappBtn.addEventListener('mouseleave', () => {
       tooltip.style.opacity = '0';
       tooltip.style.transform = 'translateY(10px)';
-    }, 2000);
-  });
-</script>
+      tooltip.style.pointerEvents = 'none';
+    });
+    whatsappBtn.addEventListener('click', () => {
+      tooltip.style.opacity = '1';
+      tooltip.style.transform = 'translateY(0)';
+      setTimeout(() => {
+        tooltip.style.opacity = '0';
+        tooltip.style.transform = 'translateY(10px)';
+      }, 2000);
+    });
+  </script>
 
 
   <!-- Scroll to Top Button -->
-<button id="scrollTopBtn"
-  class="fixed bottom-5 right-5 bg-[#f5a222] hover:bg-[#102e62] hover:text-[#f5a222] text-[#102e62] w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 
+  <button id="scrollTopBtn" class="fixed bottom-5 right-5 bg-[#f5a222] hover:bg-[#102e62] hover:text-[#f5a222] text-[#102e62] w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 
   invisible transition-all duration-300 z-[9999]">
-  <i class="fa-solid fa-arrow-up"></i>
-</button>
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
-<script>
-  const scrollBtn = document.getElementById('scrollTopBtn');
+  <script>
+    const scrollBtn = document.getElementById('scrollTopBtn');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
-      scrollBtn.classList.remove('opacity-0', 'invisible');
-      scrollBtn.classList.add('opacity-100', 'visible');
-    } else {
-      scrollBtn.classList.add('opacity-0', 'invisible');
-      scrollBtn.classList.remove('opacity-100', 'visible');
-    }
-  });
-
-  scrollBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        scrollBtn.classList.remove('opacity-0', 'invisible');
+        scrollBtn.classList.add('opacity-100', 'visible');
+      } else {
+        scrollBtn.classList.add('opacity-0', 'invisible');
+        scrollBtn.classList.remove('opacity-100', 'visible');
+      }
     });
-  });
-</script>
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
 
 
 

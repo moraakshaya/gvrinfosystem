@@ -389,15 +389,14 @@
         }
     </style>
 
-    
-     <!-- SERVICES BANNER SECTION -->
+
+    <!-- SERVICES BANNER SECTION -->
     <section id="service-banner-section" class="relative w-full pt-[25%] md:pt-[10%] md:pb-5 overflow-hidden">
         <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
             <p id="service-subtitle" class="italic text-black text-sm md:text-lg mb-1 opacity-0 translate-y-10">
                 What We Offer
             </p>
-            <h2 id="service-title"
-                class="text-3xl md:text-4xl font-bold text-[#f5a222] mb-5 opacity-0 translate-y-10">
+            <h2 id="service-title" class="text-3xl md:text-4xl font-bold text-[#f5a222] mb-5 opacity-0 translate-y-10">
                 Our Services
             </h2>
         </div>
@@ -455,8 +454,7 @@
     <section id="service-home-section" class="relative w-full py-5 overflow-hidden">
         <div class="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div class="flex justify-center md:justify-start">
-                <img src="./assests/servicebannerimg.jpg" alt="Service Image"
-                    class="rounded-2xl shadow-lg max-w-full">
+                <img src="./assests/servicebannerimg.jpg" alt="Service Image" class="rounded-2xl shadow-lg max-w-full">
             </div>
             <div class="space-y-3 md:space-y-6 text-left">
                 <p id="service-home-subtitle"
@@ -495,6 +493,7 @@
             display: inline-block;
             transform-origin: center;
         }
+
         @keyframes service-home-rollUpOut {
             0% {
                 transform: translateY(0) rotateX(0deg);
@@ -511,6 +510,7 @@
                 opacity: 0;
             }
         }
+
         @keyframes service-home-rollIn {
             0% {
                 transform: translateY(100%) rotateX(0deg);
@@ -527,6 +527,7 @@
                 opacity: 1;
             }
         }
+
         #service-home-section .service-home-button.group:hover .service-home-roll-text,
         #service-home-section .service-home-button.group:hover .service-home-roll-arrow {
             animation: service-home-rollUpOut 0.4s ease forwards,
@@ -536,6 +537,7 @@
         #service-home-section .service-home-roll-arrow {
             transform: rotate(45deg);
         }
+
         @keyframes service-home-slideUp {
             0% {
                 transform: translateY(30px);
@@ -586,9 +588,11 @@
                 transform: translateY(-6px);
             }
         }
+
         .service-home-show {
             opacity: 1 !important;
         }
+
         .service-home-animate-slideUp {
             animation: service-home-slideUp 0.8s ease-out forwards;
         }
@@ -664,6 +668,7 @@
             display: inline-block;
             transform-origin: center;
         }
+
         @keyframes svc-btn-rollUpOut {
             0% {
                 transform: translateY(0) rotateX(0deg);
@@ -680,6 +685,7 @@
                 opacity: 0;
             }
         }
+
         @keyframes svc-btn-rollIn {
             0% {
                 transform: translateY(100%) rotateX(0deg);
@@ -696,11 +702,13 @@
                 opacity: 1;
             }
         }
+
         .svc-btn:hover span,
         .svc-btn:hover .svc-btn-arrow {
             animation: svc-btn-rollUpOut 0.4s ease forwards,
                 svc-btn-rollIn 0.4s ease 0.4s forwards;
         }
+
         .svc-subtitle,
         .svc-title {
             opacity: 0;
@@ -727,18 +735,20 @@
                 transform: translateY(0);
             }
         }
+
         .svc-card:focus-within {
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
         }
     </style>
-    <section id="svc-section" class="relative flex flex-col items-center justify-center  text-center space-y-2 mt-5 md:mt-10">
+    <section id="svc-section"
+        class="relative flex flex-col items-center justify-center  text-center space-y-2 mt-5 md:mt-10">
         <h3 id="svc-subtitle" class="svc-subtitle text-lg sm:text-xl md:text-2xl text-black">
             Our <span class="text-[#f5a222]">Specialize</span>
         </h3>
         <h2 id="svc-title" class="svc-title text-2xl sm:text-3xl md:text-4xl text-black font-bold pb-5">
             Featured Services
         </h2>
-         <div id="svc-carousel"
+        <div id="svc-carousel"
             class="svc-carousel-container relative w-full max-w-6xl h-[380px] sm:h-[480px] md:h-[480px] flex items-center justify-center overflow-hidden">
             <!-- Card 1 -->
             <div class="absolute w-[220px] md:w-[280px] h-[300px] md:h-[380px] svc-card rounded-2xl p-6 text-white backdrop-blur-md border border-black overflow-hidden"
@@ -867,7 +877,7 @@
                 if (entry.isIntersecting) {
                     svcSubtitle.classList.remove("svc-animate-subtitle");
                     svcTitle.classList.remove("svc-animate-title");
-                    void svcSubtitle.offsetWidth; 
+                    void svcSubtitle.offsetWidth;
                     void svcTitle.offsetWidth;
                     svcCards.forEach(card => {
                         card.style.transform = "none";
@@ -900,7 +910,8 @@
             <h4 class="why-subtitle text-xl font-semibold text-[#f5a222] mb-4 opacity-0">
                 Why Us Better
             </h4>
-            <h2 class="why-title text-2xl md:text-4xl font-bold text-black text-shadow-[0_0_10px_#fff] mb-3 md:mb-12 opacity-0">
+            <h2
+                class="why-title text-2xl md:text-4xl font-bold text-black text-shadow-[0_0_10px_#fff] mb-3 md:mb-12 opacity-0">
                 Why Our Services are Better Than Others?
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 pt-5 px-6 md:px-20 text-left">
@@ -1073,7 +1084,7 @@
             </div>
 
             <!-- Copyright -->
-            <div class="text-center text-sm text-gray-300 py-5">
+            <div class="text-center text-sm text-gray-300 py-5 px-1 md:px-0">
                 © 2025 GVR. All rights reserved. | Developed by Prodbiz Solutions Private Limited
             </div>
         </div>
@@ -1119,70 +1130,68 @@
         });
     </script>
 
-     
-<!-- WhatsApp Button -->
-<div class="fixed bottom-20 right-0 z-50 flex flex-col items-center">
-  <div id="whatsapp-tooltip" 
-       class="mb-2 px-1 mr-1 py-1 text-[#f5a222] font-bold italic text-sm opacity-0 pointer-events-none flex items-center space-x-1 transition-all duration-300">
-    <span>Click Here </span>
-    <i class="fas fa-hand-point-down"></i>
-  </div>
-  <a href="https://wa.me/916300279321" target="_blank"
-     id="whatsapp-btn"
-     class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300 relative">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
-<script>
-  const whatsappBtn = document.getElementById('whatsapp-btn');
-  const tooltip = document.getElementById('whatsapp-tooltip');
-  whatsappBtn.addEventListener('mouseenter', () => {
-    tooltip.style.opacity = '1';
-    tooltip.style.transform = 'translateY(0)';
-    tooltip.style.pointerEvents = 'auto';
-  });
-  whatsappBtn.addEventListener('mouseleave', () => {
-    tooltip.style.opacity = '0';
-    tooltip.style.transform = 'translateY(10px)';
-    tooltip.style.pointerEvents = 'none';
-  });
-  whatsappBtn.addEventListener('click', () => {
-    tooltip.style.opacity = '1';
-    tooltip.style.transform = 'translateY(0)';
-    setTimeout(() => {
-      tooltip.style.opacity = '0';
-      tooltip.style.transform = 'translateY(10px)';
-    }, 2000);
-  });
-</script>
+
+    <!-- WhatsApp Button -->
+    <div class="fixed bottom-20 right-0 z-50 flex flex-col items-center">
+        <div id="whatsapp-tooltip"
+            class="mb-2 px-1 mr-1 py-1 text-[#f5a222] font-bold italic text-sm opacity-0 pointer-events-none flex items-center space-x-1 transition-all duration-300">
+            <span>Click Here </span>
+            <i class="fas fa-hand-point-down"></i>
+        </div>
+        <a href="https://wa.me/916300279321" target="_blank" id="whatsapp-btn"
+            class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300 relative">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <script>
+        const whatsappBtn = document.getElementById('whatsapp-btn');
+        const tooltip = document.getElementById('whatsapp-tooltip');
+        whatsappBtn.addEventListener('mouseenter', () => {
+            tooltip.style.opacity = '1';
+            tooltip.style.transform = 'translateY(0)';
+            tooltip.style.pointerEvents = 'auto';
+        });
+        whatsappBtn.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = '0';
+            tooltip.style.transform = 'translateY(10px)';
+            tooltip.style.pointerEvents = 'none';
+        });
+        whatsappBtn.addEventListener('click', () => {
+            tooltip.style.opacity = '1';
+            tooltip.style.transform = 'translateY(0)';
+            setTimeout(() => {
+                tooltip.style.opacity = '0';
+                tooltip.style.transform = 'translateY(10px)';
+            }, 2000);
+        });
+    </script>
 
 
     <!-- Scroll to Top Button -->
-<button id="scrollTopBtn"
-  class="fixed bottom-5 right-5 bg-[#f5a222] hover:bg-[#102e62] hover:text-[#f5a222] text-[#102e62] w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 
+    <button id="scrollTopBtn" class="fixed bottom-5 right-5 bg-[#f5a222] hover:bg-[#102e62] hover:text-[#f5a222] text-[#102e62] w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 
   invisible transition-all duration-300 z-[9999]">
-  <i class="fa-solid fa-arrow-up"></i>
-</button>
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
-<script>
-  const scrollBtn = document.getElementById('scrollTopBtn');
+    <script>
+        const scrollBtn = document.getElementById('scrollTopBtn');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
-      scrollBtn.classList.remove('opacity-0', 'invisible');
-      scrollBtn.classList.add('opacity-100', 'visible');
-    } else {
-      scrollBtn.classList.add('opacity-0', 'invisible');
-      scrollBtn.classList.remove('opacity-100', 'visible');
-    }
-  });
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollBtn.classList.remove('opacity-0', 'invisible');
+                scrollBtn.classList.add('opacity-100', 'visible');
+            } else {
+                scrollBtn.classList.add('opacity-0', 'invisible');
+                scrollBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
 
-  scrollBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-</script>
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
 </body>
