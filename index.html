@@ -233,10 +233,10 @@
         <div x-show="open" x-transition.opacity x-cloak class="lg:hidden absolute top-16 left-0 w-full 
             bg-gray-900
             border-t border-white/20 text-white dropdown-animate rounded-b-xl shadow-lg">
-            <div class="flex flex-col p-4 space-y-1"> <!-- ✅ Increased space-y for separation -->
+            <div class="flex flex-col p-4 space-y-1">
 
                 <!-- Company -->
-                <div class="space-y-1"> <!-- ✅ Space between button and dropdown -->
+                <div class="space-y-1">
                     <button @click="dropdowns.company = !dropdowns.company"
                         class="w-full text-left flex justify-between items-center px-3 py-2 rounded-lg hover:bg-white/10"
                         :class="dropdowns.company ? 'text-yellow-400' : 'text-white'">
@@ -339,9 +339,8 @@
 
                         <!-- Wrapper for text + icon -->
                         <span class="relative h-6 flex items-center overflow-hidden">
-                            <!-- Animated wrapper (text + arrow together) -->
                             <span class="flex items-center gap-2" :class="{ 'animate-roll-up-down': animate }">
-                                Get Started
+                                Get Started 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" viewBox="0 0 24 24">
@@ -2194,9 +2193,9 @@ border-yellow-500 text-[#f5a222] bg-[#102e62] font-medium opacity-0 transform tr
             tooltip.style.pointerEvents = 'auto';
         });
         whatsappBtn.addEventListener('mouseleave', () => {
-            tooltip.style.opacity = '0';
+            tooltip.style.opacity = '0';    
             tooltip.style.transform = 'translateY(10px)';
-            tooltip.style.pointerEvents = 'none';
+            tooltip.style.pointerEvents = 'none'; 
         });
         whatsappBtn.addEventListener('click', () => {
             tooltip.style.opacity = '1';
