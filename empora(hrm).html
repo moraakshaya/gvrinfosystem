@@ -91,13 +91,24 @@
 </head>
 
 <body class="relative min-h-screen bg-gray-100 text-white">
-    <nav x-data="{ open: false, dropdowns: { company: false, products: false, services: false }, activeLink: '', scrolled: false }"
-        x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
-        class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500"
-        :class="scrolled ? 'bg-black shadow-lg' : 'bg-white'">
+<nav x-data="{ 
+        open: false, 
+        dropdowns: { company: false, products: false, services: false }, 
+        activeLink: '', 
+        scrolled: false 
+    }"
+    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+    class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md"
+    :style="scrolled
+        ? (window.innerWidth >= 768 
+            ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);'
+            : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);')
+        : (window.innerWidth >= 768
+            ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%);'
+            : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%);')">
 
         <div class="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between h-16"
-            :class="scrolled ? 'text-white' : 'text-black'">
+            :class="scrolled ? 'text-[#102e62]' : 'text-[#102e62]'">
             <!-- Logo -->
             <a href="./" class="text-xl font-bold">
                 <img src="./assests/upscalemedia-transformed.png" alt="MyLogo" class="h-10 w-auto">
@@ -108,7 +119,7 @@
                 <!-- Company -->
                 <div class="group h-16 flex items-center relative">
                     <button
-                        class="flex items-center gap-1 group-hover:text-yellow-500 text-xl transition-colors duration-300">
+                        class="flex items-center gap-1 group-hover:text-black text-xl transition-colors duration-300">
                         Company
                         <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -139,7 +150,7 @@
                 <!-- Services -->
                 <div class="group h-16 flex items-center relative">
                     <button
-                        class="flex items-center gap-1 group-hover:text-yellow-500 text-xl transition-colors duration-300">
+                        class="flex items-center gap-1 group-hover:text-black text-xl transition-colors duration-300">
                         Services
                         <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -176,7 +187,7 @@
                 <!-- Products -->
                 <div class="group h-16 flex items-center relative">
                     <button
-                        class="flex items-center gap-1 group-hover:text-yellow-500 text-xl transition-colors duration-300">
+                        class="flex items-center gap-1 group-hover:text-black text-xl transition-colors duration-300">
                         Products
                         <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -197,14 +208,14 @@
                     </div>
                 </div>
 
-                <a href="careers" class="hover:text-yellow-500 text-xl transition-colors duration-300">Careers</a>
-                <a href="blog" class="hover:text-yellow-500 text-xl transition-colors duration-300">Blog</a>
+                <a href="careers" class="hover:text-black text-xl transition-colors duration-300">Careers</a>
+                <a href="blog" class="hover:text-black text-xl transition-colors duration-300">Blog</a>
             </div>
 
             <!-- Get Started Button -->
             <div class="hidden lg:block">
                 <a href="contact"
-                    class="relative flex items-center gap-2 px-6 py-2 border border-2 border-yellow-500 text-yellow-500 bg-transparent rounded-full font-semibold overflow-hidden group">
+                    class="relative flex items-center gap-2 px-6 py-2 border border-2 border-[#102e62] text-[#102e62] bg-transparent rounded-full font-semibold overflow-hidden group">
                     <span class="flex items-center gap-2 group-hover:animate-roll-up-down">
                         Get Started
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
@@ -218,7 +229,7 @@
 
             <!-- Mobile Toggle -->
             <button @click="open = !open"
-                class="lg:hidden w-10 h-10 flex items-center justify-center rounded-full border border-yellow-400 text-yellow-500">
+                class="lg:hidden w-10 h-10 flex items-center justify-center rounded-full border border-[#102e62] text-[#102e62]">
                 <svg x-show="!open" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                     stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -233,10 +244,10 @@
         <div x-show="open" x-transition.opacity x-cloak class="lg:hidden absolute top-16 left-0 w-full 
             bg-gray-900
             border-t border-white/20 text-white dropdown-animate rounded-b-xl shadow-lg">
-            <div class="flex flex-col p-4 space-y-1"> <!-- ✅ Increased space-y for separation -->
+            <div class="flex flex-col p-4 space-y-1">
 
                 <!-- Company -->
-                <div class="space-y-1"> <!-- ✅ Space between button and dropdown -->
+                <div class="space-y-1">
                     <button @click="dropdowns.company = !dropdowns.company"
                         class="w-full text-left flex justify-between items-center px-3 py-2 rounded-lg hover:bg-white/10"
                         :class="dropdowns.company ? 'text-yellow-400' : 'text-white'">
@@ -339,7 +350,6 @@
 
                         <!-- Wrapper for text + icon -->
                         <span class="relative h-6 flex items-center overflow-hidden">
-                            <!-- Animated wrapper (text + arrow together) -->
                             <span class="flex items-center gap-2" :class="{ 'animate-roll-up-down': animate }">
                                 Get Started
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
@@ -483,7 +493,7 @@
 
 
 
-    <footer class="relative bg-black text-gray-300 pt-10 overflow-hidden">
+    <footer class="relative bg-gradient-to-b from-black to-[#102e62] w-full text-gray-300 pt-10 overflow-hidden">
         <div class="relative z-10">
             <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-gray-700">
                 <!-- Left: Logo + Address -->

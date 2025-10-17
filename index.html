@@ -91,13 +91,24 @@
 </head>
 
 <body class="relative min-h-screen bg-gray-100 text-white">
-    <nav x-data="{ open: false, dropdowns: { company: false, products: false, services: false }, activeLink: '', scrolled: false }"
-        x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
-        class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500"
-        :class="scrolled ? 'bg-black shadow-lg' : 'bg-white'">
+    <nav x-data="{ 
+        open: false, 
+        dropdowns: { company: false, products: false, services: false }, 
+        activeLink: '', 
+        scrolled: false 
+    }"
+    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+    class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md"
+    :style="scrolled
+        ? (window.innerWidth >= 768 
+            ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);'
+            : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);')
+        : (window.innerWidth >= 768
+            ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%);'
+            : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%);')">
 
         <div class="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between h-16"
-            :class="scrolled ? 'text-white' : 'text-black'">
+            :class="scrolled ? 'text-[#102e62]' : 'text-[#102e62]'">
             <!-- Logo -->
             <a href="./" class="text-xl font-bold">
                 <img src="./assests/upscalemedia-transformed.png" alt="MyLogo" class="h-10 w-auto">
@@ -108,7 +119,7 @@
                 <!-- Company -->
                 <div class="group h-16 flex items-center relative">
                     <button
-                        class="flex items-center gap-1 group-hover:text-yellow-500 text-xl transition-colors duration-300">
+                        class="flex items-center gap-1 group-hover:text-black text-xl transition-colors duration-300">
                         Company
                         <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -139,7 +150,7 @@
                 <!-- Services -->
                 <div class="group h-16 flex items-center relative">
                     <button
-                        class="flex items-center gap-1 group-hover:text-yellow-500 text-xl transition-colors duration-300">
+                        class="flex items-center gap-1 group-hover:text-black text-xl transition-colors duration-300">
                         Services
                         <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -176,7 +187,7 @@
                 <!-- Products -->
                 <div class="group h-16 flex items-center relative">
                     <button
-                        class="flex items-center gap-1 group-hover:text-yellow-500 text-xl transition-colors duration-300">
+                        class="flex items-center gap-1 group-hover:text-black text-xl transition-colors duration-300">
                         Products
                         <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -197,14 +208,14 @@
                     </div>
                 </div>
 
-                <a href="careers" class="hover:text-yellow-500 text-xl transition-colors duration-300">Careers</a>
-                <a href="blog" class="hover:text-yellow-500 text-xl transition-colors duration-300">Blog</a>
+                <a href="careers" class="hover:text-black text-xl transition-colors duration-300">Careers</a>
+                <a href="blog" class="hover:text-black text-xl transition-colors duration-300">Blog</a>
             </div>
 
             <!-- Get Started Button -->
             <div class="hidden lg:block">
                 <a href="contact"
-                    class="relative flex items-center gap-2 px-6 py-2 border border-2 border-yellow-500 text-yellow-500 bg-transparent rounded-full font-semibold overflow-hidden group">
+                    class="relative flex items-center gap-2 px-6 py-2 border border-2 border-[#102e62] text-[#102e62] bg-transparent rounded-full font-semibold overflow-hidden group">
                     <span class="flex items-center gap-2 group-hover:animate-roll-up-down">
                         Get Started
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
@@ -218,7 +229,7 @@
 
             <!-- Mobile Toggle -->
             <button @click="open = !open"
-                class="lg:hidden w-10 h-10 flex items-center justify-center rounded-full border border-yellow-400 text-yellow-500">
+                class="lg:hidden w-10 h-10 flex items-center justify-center rounded-full border border-[#102e62] text-[#102e62]">
                 <svg x-show="!open" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                     stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -340,7 +351,7 @@
                         <!-- Wrapper for text + icon -->
                         <span class="relative h-6 flex items-center overflow-hidden">
                             <span class="flex items-center gap-2" :class="{ 'animate-roll-up-down': animate }">
-                                Get Started 
+                                Get Started
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" viewBox="0 0 24 24">
@@ -563,17 +574,17 @@
         }
     </style>
     <section
-        class="relative flex flex-col md:flex-row overflow-hidden items-center justify-center px-6 md:px-16 pt-10 md:pt-[13%] md:pb-5 gap-0 md:gap-10 ">
+        class="bg-[#102e62] relative rounded-b-[10px] flex flex-col md:flex-row overflow-hidden items-center justify-center px-6 md:px-16 pt-20 md:pt-[13%] border border-white md:pb-5 gap-0 md:gap-10 ">
 
         <!-- Left Image -->
-        <div class="w-full md:w-1/2 flex justify-center relative z-10 opacity-0 animate-image-slide-in border border-none"
+        <div class="w-full md:w-1/2 order-2 md:order-1 border border-black flex justify-center relative z-10 opacity-0 animate-image-slide-in border border-none"
             style="animation-delay: 0.5s;">
-            <img src="./assests/homebannerimg.png" alt="Business Image" class="rounded-lg  max-w-full h-auto">
+            <img src="./assests/homebannerimg.png" alt="Business Image" class="rounded-lg max-w-full h-auto">
         </div>
 
         <!-- Right Content -->
         <div
-            class="w-full md:w-1/2 flex flex-col justify-center text-black text-left space-y-3 md:space-y-6 relative z-10 border border-none">
+            class="w-full md:w-1/2 order-1 md:order-2 flex flex-col justify-center text-white text-left space-y-3 md:space-y-6 relative z-10 border border-none">
 
             <!-- Line 1 -->
             <h2 class="text-lg md:text-xl font-medium opacity-0 animate-slide-in" style="animation-delay: 0.5s;">
@@ -581,14 +592,14 @@
             </h2>
 
             <!-- Line 2 -->
-            <h1 class="text-3xl md:text-5xl font-extrabold text-black leading-snug opacity-0 animate-slide-in"
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-snug opacity-0 animate-slide-in"
                 style="animation-delay: 1.5s;">
                 Grow your Business <br>
                 Organic & IT Solution Technology
             </h1>
 
             <!-- Line 3 -->
-            <p class="text-gray-900 text-base md:text-lg max-w-xl opacity-0 animate-fade-in"
+            <p class="text-gray-300 text-base md:text-lg max-w-xl opacity-0 animate-fade-in"
                 style="animation-delay: 2.5s;">
                 In today’s competitive business, the demand for efficient and cost-effective IT
                 solutions has never been more critical.
@@ -796,31 +807,29 @@
     <!-- ABOUT GVR SECTION -->
     <section id="about-gvr-section" class="relative w-full bg-none">
         <div
-            class="relative z-10 max-w-6xl mx-auto px-6 py-0 md:py-5 flex flex-col md:flex-row items-center gap-6 md:gap-12">
-            <div class="flex-1 gvr-left-content font-['EB Garamond']">
+            class="relative z-10 max-w- mx-auto px-6 md:px-5 py-0 md:py-5 flex flex-col md:flex-row items-center gap-6 md:gap-0">
+
+            <!-- Left Content -->
+            <div class="flex-1 md:pl-[8%] gvr-left-content font-['EB Garamond']">
                 <h3 class="gvr-subtitle text-xl md:text-3xl font-semibold text-black mb-2">
                     We are <span class="text-[#f5a222]">GVR</span>
                 </h3>
 
-                <!-- Title -->
                 <h2 class="gvr-title text-3xl md:text-4xl font-bold text-black mb-4">
                     Our Commitment to Client Satisfaction
                 </h2>
 
-                <!-- Paragraph -->
                 <p class="gvr-para text-gray-800 md:text-lg mb-4 max-w-md">
                     At GVR, our commitment to client satisfaction is at the core of everything we do.
                     We understand clients' success.
                 </p>
 
-                <!-- Key Points -->
                 <ul class="gvr-keypoints text-gray-800 mb-6 md:text-lg list-disc list-inside space-y-1">
                     <li>Grow your business the right way.</li>
                     <li>Let business growth help your business grow.</li>
                     <li>Helping you to get better.</li>
                 </ul>
 
-                <!-- Button -->
                 <a href="contact"
                     class="gvr-button relative inline-flex items-center px-6 py-3 rounded-full bg-[#102e62] border border-[#f5a222] text-[#f5a222] font-semibold overflow-hidden group">
                     <span class="gvr-roll-text inline-block">Explore More</span>
@@ -832,16 +841,71 @@
                 </a>
             </div>
 
-            <!-- Right Video -->
-            <div class="flex-1 gvr-right-video opacity-0 translate-y-6">
-                <video id="gvr-video" class="w-full h-auto rounded-xl shadow-xl" muted playsinline>
-                    <source src="./assests/video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <!-- Right Auto-Slide Carousel -->
+            <div class="flex-1 gvr-right-carousel opacity-0 translate-y-6">
+                <div class="relative w-full h-96 md:h-[28rem] overflow-hidden rounded-xl shadow-xl">
+                    <div class="gvr-slides flex transition-transform duration-700 ease-in-out h-full">
+                        <!-- Slide 1 -->
+                        <div class="slide min-w-full relative h-full">
+                            <img src="./assests/social-media-marketing-concept-marketing-with-applications.jpg"
+                                alt="Business Growth" class="w-full h-full object-cover rounded-xl">
+                            <div class="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 p-3 rounded-md">
+                                <h4 class="text-lg font-semibold">Business Growth</h4>
+                                <p class="text-sm">Helping your business grow the right way.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="slide min-w-full relative h-full">
+                            <img src="./assests/portrait-successful-female-partners-shaking-hands.jpg"
+                                alt="Team Collaboration" class="w-full h-full object-cover rounded-xl">
+                            <div class="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 p-3 rounded-md">
+                                <h4 class="text-lg font-semibold">Team Collaboration</h4>
+                                <p class="text-sm">Together, we achieve more.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="slide min-w-full relative h-full">
+                            <img src="./assests/representation-user-experience-interface-design.jpg" alt="Client Satisfaction"
+                                class="w-full h-full object-cover rounded-xl">
+                            <div class="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 p-3 rounded-md">
+                                <h4 class="text-lg font-semibold">Client Satisfaction</h4>
+                                <p class="text-sm">Our priority is your success.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
     <style>
+        /* Optional: fallback if you want to add via CSS */
+        .gvr-right-carousel>div {
+            height: 28rem;
+            /* default height */
+        }
+
+        @media (max-width: 768px) {
+            .gvr-right-carousel>div {
+                height: 22rem;
+                /* smaller height for tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gvr-right-carousel>div {
+                height: 18rem;
+                /* smaller height for mobile */
+            }
+        }
+
+        .gvr-slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
         .gvr-roll-text,
         .gvr-roll-arrow {
             display: inline-block;
@@ -935,70 +999,102 @@
             }
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const section = document.getElementById("about-gvr-section");
-            const leftContent = section.querySelector(".gvr-left-content");
-            const rightVideoWrapper = section.querySelector(".gvr-right-video");
-            const video = document.getElementById("gvr-video");
-            const subtitle = section.querySelector(".gvr-subtitle");
-            const title = section.querySelector(".gvr-title");
-            const para = section.querySelector(".gvr-para");
-            const keypoints = section.querySelectorAll(".gvr-keypoints li");
-            const button = section.querySelector(".gvr-button");
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("about-gvr-section");
+    const leftContent = section.querySelector(".gvr-left-content");
+    const rightCarouselWrapper = section.querySelector(".gvr-right-carousel");
+    const subtitle = section.querySelector(".gvr-subtitle");
+    const title = section.querySelector(".gvr-title");
+    const para = section.querySelector(".gvr-para");
+    const keypoints = section.querySelectorAll(".gvr-keypoints li");
+    const button = section.querySelector(".gvr-button");
 
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        [leftContent, rightVideoWrapper, subtitle, title, para, button].forEach(el => {
-                            el.style.opacity = 0;
-                            el.style.animation = "none";
-                            el.style.transform = "translateY(30px)";
-                        });
-                        keypoints.forEach(li => {
-                            li.style.opacity = 0;
-                            li.style.animation = "none";
-                            li.style.transform = "translateX(-30px)";
-                        });
-                        void section.offsetWidth;
-                        setTimeout(() => {
-                            leftContent.style.transition = "all 0.8s ease";
-                            leftContent.style.opacity = 1;
-                            leftContent.style.transform = "translateY(0)";
-                        }, 100);
-                        setTimeout(() => { subtitle.style.animation = "gvr-slideDown 1s ease forwards"; }, 500);
-                        setTimeout(() => { title.style.animation = "gvr-slideDown 1s ease forwards"; }, 1000);
-                        setTimeout(() => { para.style.animation = "gvr-fadeIn 1s ease forwards"; }, 1600);
-                        keypoints.forEach((li, index) => {
-                            setTimeout(() => { li.style.animation = "gvr-fadeLeft 0.8s ease forwards"; }, 2600 + index * 300);
-                        });
-                        const videoDelay = 2600 + keypoints.length * 300 + 300;
-                        setTimeout(() => {
-                            rightVideoWrapper.style.transition = "all 0.8s ease";
-                            rightVideoWrapper.style.opacity = 1;
-                            rightVideoWrapper.style.transform = "translateY(0)";
-
-                            if (video) {
-                                video.currentTime = 0;
-                                video.play().catch(err => console.log("Play blocked:", err));
-                            }
-                        }, videoDelay);
-                        const buttonDelay = videoDelay + 1000;
-                        setTimeout(() => {
-                            button.style.opacity = 1;
-                            button.style.animation = "gvr-float 2s ease-in-out infinite";
-                        }, buttonDelay);
-                    }
-                });
-            }, { threshold: 0.3 });
-
-            observer.observe(section);
+    // Helper: reset all animated elements
+    function resetAnimations() {
+        [leftContent, rightCarouselWrapper, subtitle, title, para, button].forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = "translateY(30px)";
+            el.style.transition = "none";
         });
-    </script>
+
+        keypoints.forEach(li => {
+            li.style.opacity = 0;
+            li.style.transform = "translateX(30px)";
+            li.style.transition = "none";
+        });
+
+        button.style.animation = "none";
+    }
+
+    resetAnimations();
+
+    // Intersection Observer for scroll animation
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate left and right content
+                [leftContent, rightCarouselWrapper, subtitle, title, para, button].forEach(el => {
+                    el.style.opacity = 1;
+                    el.style.transform = "translateY(0)";
+                    el.style.transition = "all 0.8s ease";
+                });
+
+                keypoints.forEach((li, index) => {
+                    li.style.opacity = 1;
+                    li.style.transform = "translateX(0)";
+                    li.style.transition = `all 0.8s ease ${index * 0.2}s`;
+                });
+
+                // Button floating animation
+                button.style.animation = "gvr-float 2s ease-in-out infinite";
+            } else {
+                // Reset animations when section is out of view
+                resetAnimations();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    observer.observe(section);
+
+    // --- Infinite forward carousel ---
+    const slidesWrapper = document.querySelector(".gvr-slides");
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const slideCount = slides.length;
+
+    const firstClone = slides[0].cloneNode(true);
+    slidesWrapper.appendChild(firstClone);
+
+    let currentIndex = 0;
+    let isTransitioning = false;
+
+    function showSlide(index) {
+        slidesWrapper.style.transition = isTransitioning ? "transform 0.7s ease-in-out" : "none";
+        slidesWrapper.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    setInterval(() => {
+        isTransitioning = true;
+        currentIndex++;
+        showSlide(currentIndex);
+
+        if (currentIndex > slideCount - 1) {
+            setTimeout(() => {
+                isTransitioning = false;
+                currentIndex = 0;
+                showSlide(currentIndex);
+            }, 700);
+        }
+    }, 5000);
+});
+
+</script>
+
+
 
     <!-- EXPERIENCE SECTION -->
     <section
-        class="relative flex flex-col md:flex-row items-center justify-center pt-10 pb-2 md:pt-2 md:pb-2 px-6 md:px-[8%] gap-10 bg-none"
+        class="relative flex flex-col md:flex-row items-center justify-center pt-10 md:pt-20 pb-2 md:pt-2 md:pb-2 px-6 md:px-[8%] gap-10 bg-none"
         id="stats-section">
 
         <!-- Left Side (Steps) -->
@@ -1489,6 +1585,9 @@
         }, { threshold: 0.3 });
         svcObserver.observe(document.getElementById("svc-section"));
     </script>
+
+
+
 
     <!-- OUR PRODUCTS SECTION -->
     <section id="ourproducts-timeline-section" class="relative w-full pt-12 md:pt-24 pb-5 overflow-hidden">
@@ -2034,7 +2133,7 @@ border-yellow-500 text-[#f5a222] bg-[#102e62] font-medium opacity-0 transform tr
 
 
 
-    <footer class="relative bg-black text-gray-300 pt-10 overflow-hidden">
+    <footer class="relative bg-gradient-to-b from-black to-[#102e62] w-full text-gray-300 pt-10 overflow-hidden">
         <div class="relative z-10">
             <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-gray-700">
                 <!-- Left: Logo + Address -->
@@ -2193,9 +2292,9 @@ border-yellow-500 text-[#f5a222] bg-[#102e62] font-medium opacity-0 transform tr
             tooltip.style.pointerEvents = 'auto';
         });
         whatsappBtn.addEventListener('mouseleave', () => {
-            tooltip.style.opacity = '0';    
+            tooltip.style.opacity = '0';
             tooltip.style.transform = 'translateY(10px)';
-            tooltip.style.pointerEvents = 'none'; 
+            tooltip.style.pointerEvents = 'none';
         });
         whatsappBtn.addEventListener('click', () => {
             tooltip.style.opacity = '1';
