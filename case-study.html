@@ -399,66 +399,59 @@
   </style>
 
   <!-- Portfolio Banner Section -->
-  <section id="portfolio-banner-section" class="relative w-full pt-[25%] md:pt-[10%] md:pb-5 overflow-hidden">
-    <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
-      <!-- Subtitle -->
-      <p id="portfolio-subtitle" class="italic text-black text-sm md:text-lg mb-1 opacity-0 translate-y-10">
-        Showcasing Our Case Studies
-      </p>
-      <!-- Title -->
-      <h2 id="portfolio-title" class="text-3xl md:text-4xl font-bold text-[#f5a222] mb-5 opacity-0 translate-y-10">
-        Case Study
-      </h2>
+  
+<!-- Case Study Banner Section -->
+<section id="case-study-section"
+    class="relative w-full pt-10 pb-5 md:py-20 bg-none flex flex-col items-center justify-center text-center overflow-hidden">
+    <div class="relative z-10 max-w-3xl px-6 pt-20">
+        <!-- Title -->
+        <h2 class="text-4xl md:text-5xl font-bold text-[#f5a222] drop-shadow-lg mb-4 case-animate">
+            Case Study
+        </h2>
+        <!-- Subtitle -->
+        <p class="text-md sm:text-lg md:text-xl italic text-gray-800 case-animate case-delay-200">
+            Showcasing Our Case Studies
+        </p>
     </div>
-  </section>
-  <style>
-    @keyframes portfolioSlideUp {
-      0% {
-        transform: translateY(30px);
+</section>
+
+<style>
+    .case-animate {
         opacity: 0;
-      }
-
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
+        transform: translateY(-40px);
+        transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
     }
 
-    .animate-portfolioSlideUp {
-      animation: portfolioSlideUp 0.8s ease-out forwards;
+    .case-delay-200 {
+        transition-delay: 0.2s;
     }
-  </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const portfolioSubtitle = document.getElementById("portfolio-subtitle");
-      const portfolioTitle = document.getElementById("portfolio-title");
-      const portfolioSection = document.getElementById("portfolio-banner-section");
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
+    .case-visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+</style>
+
+<script>
+    const caseObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const elements = entry.target.querySelectorAll('.case-animate');
             if (entry.isIntersecting) {
-              portfolioSubtitle.classList.remove("animate-portfolioSlideUp");
-              portfolioTitle.classList.remove("animate-portfolioSlideUp");
-              void portfolioSubtitle.offsetWidth;
-              void portfolioTitle.offsetWidth;
-
-              portfolioSubtitle.classList.add("animate-portfolioSlideUp");
-              setTimeout(() => {
-                portfolioTitle.classList.add("animate-portfolioSlideUp");
-              }, 500);
+                elements.forEach((el, i) => {
+                    setTimeout(() => {
+                        el.classList.add('case-visible');
+                    }, i * 200);
+                });
             } else {
-              portfolioSubtitle.classList.remove("animate-portfolioSlideUp");
-              portfolioTitle.classList.remove("animate-portfolioSlideUp");
+                elements.forEach(el => {
+                    el.classList.remove('case-visible');
+                });
             }
-          });
-        },
-        { threshold: 0.3 }
-      );
+        });
+    }, { threshold: 0.3 });
 
-      observer.observe(portfolioSection);
-    });
-  </script>
+    caseObserver.observe(document.querySelector('#case-study-section'));
+</script>
 
 
   <!-- INNOVATIVE GROWTH SECTION -->
