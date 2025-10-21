@@ -91,15 +91,13 @@
 </head>
 
 <body class="relative min-h-screen bg-gray-200 text-white">
-<nav x-data="{ 
+    <nav x-data="{ 
         open: false, 
         dropdowns: { company: false, products: false, services: false }, 
         activeLink: '', 
         scrolled: false 
-    }"
-    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
-    class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md"
-    :style="scrolled
+    }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+        class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md" :style="scrolled
         ? (window.innerWidth >= 768 
             ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);'
             : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);')
@@ -401,57 +399,57 @@
 
 
     <!-- TEAM MEMBERS SECTION -->
-   <section id="team-section"
-    class="relative w-full pt-10 pb-5 md:py-20 bg-none flex flex-col items-center justify-center text-center overflow-hidden">
-    <div class="relative z-10 max-w-3xl px-6 pt-20">
-        <!-- Title -->
-        <h2 class="text-4xl md:text-5xl font-bold text-[#f5a222] drop-shadow-lg mb-4 team-animate">
-            Team Members
-        </h2>
-        <!-- Subtitle -->
-        <p class="text-md sm:text-lg md:text-xl italic text-gray-800 team-animate delay-200">
-           Meet the Experts Behind Our Success
-        </p>
-    </div>
-</section>
+    <section id="team-section"
+        class="relative w-full pt-10 pb-5 md:py-20 bg-none flex flex-col items-center justify-center text-center overflow-hidden">
+        <div class="relative z-10 max-w-3xl px-6 pt-20">
+            <!-- Title -->
+            <h2 class="text-4xl md:text-5xl font-bold text-[#f5a222] drop-shadow-lg mb-4 team-animate">
+                Team Members
+            </h2>
+            <!-- Subtitle -->
+            <p class="text-md sm:text-lg md:text-xl italic text-gray-800 team-animate delay-200">
+                Meet the Experts Behind Our Success
+            </p>
+        </div>
+    </section>
 
-<style>
-    .team-animate {
-        opacity: 0;
-        transform: translateY(-40px);
-        transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
-    }
+    <style>
+        .team-animate {
+            opacity: 0;
+            transform: translateY(-40px);
+            transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
+        }
 
-    .delay-200 {
-        transition-delay: 0.2s;
-    }
+        .delay-200 {
+            transition-delay: 0.2s;
+        }
 
-    .team-visible {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
-</style>
+        .team-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
 
-<script>
-    const teamObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            const elements = entry.target.querySelectorAll('.team-animate');
-            if (entry.isIntersecting) {
-                elements.forEach((el, i) => {
-                    setTimeout(() => {
-                        el.classList.add('team-visible');
-                    }, i * 200);
-                });
-            } else {
-                elements.forEach(el => {
-                    el.classList.remove('team-visible');
-                });
-            }
-        });
-    }, { threshold: 0.3 });
+    <script>
+        const teamObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const elements = entry.target.querySelectorAll('.team-animate');
+                if (entry.isIntersecting) {
+                    elements.forEach((el, i) => {
+                        setTimeout(() => {
+                            el.classList.add('team-visible');
+                        }, i * 200);
+                    });
+                } else {
+                    elements.forEach(el => {
+                        el.classList.remove('team-visible');
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
 
-    teamObserver.observe(document.querySelector('#team-section'));
-</script>
+        teamObserver.observe(document.querySelector('#team-section'));
+    </script>
 
 
     <!-- TEAM SECTION -->
@@ -796,15 +794,15 @@
 
     <!-- GLOBAL TEAM SECTION -->
     <section id="global-team-section" class="relative w-full overflow-hidden pt-0 pb-5 md:py-10">
-        <div class="relative z-10 max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center px-6 md:px-12">
+        <div class="relative z-10 max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center px-6 md:px-0">
             <!-- Left Side: Image -->
             <div
-                class="w-full md:w-7/12 global-team-image-wrapper opacity-0 scale-90 transition-all duration-700 ease-out">
-                <img src="./assests/globalteamimg.png" alt="Global Team" class="w-full rounded-xl shadow-lg">
+                class="w-full md:w-5/12 global-team-image-wrapper mt-5 opacity-0 rounded-[50px] scale-90 transition-all duration-700 ease-out">
+                <img src="./assests/globalteamimg.png" alt="Global Team" class="w-full rounded-[50px] shadow-lg">
             </div>
 
             <!-- Right Side: Content -->
-            <div class="w-full md:w-5/12 mt-10 md:mt-0 md:pl-12 text-center md:text-left">
+            <div class="w-full md:w-8/12 mt-10 md:mt-0 md:pl-12 text-center md:text-left">
                 <h3
                     class="text-[#f5a222] text-lg md:text-xl font-semibold mb-2 opacity-0 translate-y-10 transition-all duration-700 ease-out global-team-subtitle">
                     GVR Company
@@ -813,9 +811,91 @@
                     class="text-black text-2xl md:text-4xl font-bold drop-shadow-lg opacity-0 translate-y-10 transition-all duration-700 ease-out global-team-title">
                     Our Global Team is Growing
                 </h2>
+
+                <!-- Content below h2 -->
+                <p
+                    class="mt-4 text-gray-800 text-base md:text-lg opacity-0 translate-y-10 transition-all duration-700 ease-out global-team-description global-team-para">
+                    At GVR Company, our talented team of professionals spans across the globe, bringing together diverse
+                    expertise, innovative ideas, and a shared passion for excellence. Together, we strive to deliver
+                    exceptional solutions to our clients worldwide.
+                </p>
+
+                <a id="cta-btn" href="contact"
+                    class="cta-btn group inline-flex items-center px-6 py-3 md:px-6 md:py-3 mt-3 rounded-full backdrop-blur-md border border-[#102e62] bg-[#102e62] text-[#f5a222] font-bold overflow-hidden opacity-0 translate-y-10 transition-all duration-700 ease-out">
+                    <span class="cta-roll-text inline-block">Join Our Team</span>
+                    <span class="cta-roll-arrow inline-block ml-3">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0l-6 6m6-6l6 6" />
+                        </svg>
+                    </span>
+                </a>
+
+
             </div>
+
         </div>
     </section>
+    <style>
+        @keyframes rollUpOut {
+            0% {
+                transform: translateY(0) rotateX(0deg);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(-100%) rotateX(90deg);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(100%) rotateX(0deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes rollIn {
+            0% {
+                transform: translateY(100%) rotateX(0deg);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateY(-20%) rotateX(-10deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0) rotateX(0deg);
+                opacity: 1;
+            }
+        }
+
+
+        .global-team-image-wrapper img {
+            box-shadow:
+                0 5px 10px rgba(16, 46, 98, 0.6),
+                0 5px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 50px;
+        }
+
+        .global-team-image-wrapper:hover img {
+            transform: translateY(-5px);
+            box-shadow:
+                0 10px 15px rgba(16, 46, 98, 0.7),
+                0 10px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .cta-btn.group:hover .cta-roll-text,
+        .cta-btn.group:hover .cta-roll-arrow {
+            animation: rollUpOut 0.4s ease forwards,
+                rollIn 0.4s ease 0.4s forwards;
+        }
+
+        .cta-roll-arrow {
+            transform: rotate(45deg);
+        }
+    </style>
     <script>
         const globalTeamSection = document.getElementById('global-team-section');
 
@@ -824,29 +904,57 @@
                 const image = entry.target.querySelector('.global-team-image-wrapper');
                 const subtitle = entry.target.querySelector('.global-team-subtitle');
                 const title = entry.target.querySelector('.global-team-title');
+                const paragraph = entry.target.querySelector('.global-team-para');
+                const cta = entry.target.querySelector('.cta-btn');
 
                 if (entry.isIntersecting) {
                     image.style.opacity = '1';
                     image.style.transform = 'scale(1)';
+
                     subtitle.style.opacity = '1';
                     subtitle.style.transform = 'translateY(0)';
+
                     setTimeout(() => {
                         title.style.opacity = '1';
                         title.style.transform = 'translateY(0)';
                     }, 150);
+
+                    setTimeout(() => {
+                        paragraph.style.opacity = '1';
+                        paragraph.style.transform = 'translateY(0)';
+                    }, 300);
+
+                    setTimeout(() => {
+                        if (cta) {
+                            cta.style.opacity = '1';
+                            cta.style.transform = 'translateY(0)';
+                        }
+                    }, 450);
+
                 } else {
                     image.style.opacity = '0';
                     image.style.transform = 'scale(0.9)';
+
                     subtitle.style.opacity = '0';
                     subtitle.style.transform = 'translateY(30px)';
+
                     title.style.opacity = '0';
                     title.style.transform = 'translateY(30px)';
+
+                    paragraph.style.opacity = '0';
+                    paragraph.style.transform = 'translateY(30px)';
+
+                    if (cta) {
+                        cta.style.opacity = '0';
+                        cta.style.transform = 'translateY(30px)';
+                    }
                 }
             });
         }, { threshold: 0.3 });
 
         globalobserver.observe(globalTeamSection);
     </script>
+
 
 
 
