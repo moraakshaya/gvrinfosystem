@@ -911,90 +911,155 @@
     </script>
 
     <!-- WHY US SECTION -->
-    <section id="why-us-section" class="relative w-full py-16 overflow-hidden">
-        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
-            <h4 class="why-subtitle text-xl font-semibold text-[#f5a222] mb-4 opacity-0">
-                Why Us Better
-            </h4>
-            <h2
-                class="why-title text-2xl md:text-4xl font-bold text-black text-shadow-[0_0_10px_#fff] mb-3 md:mb-12 opacity-0">
-                Why Our Services are Better Than Others?
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 pt-5 px-6 md:px-20 text-left">
-                <div class="service-item flex items-center justify-center space-x-4 opacity-0 translate-y-10">
-                    <i class="fas fa-award text-[#f5a222] text-3xl glowing-blue"></i>
-                    <p class="text-black md:text-lg font-medium">Quality Comes First</p>
-                </div>
-                <div class="service-item flex items-center justify-center space-x-4 opacity-0 translate-y-10">
-                    <i class="fas fa-handshake text-[#f5a222] text-3xl glowing-blue"></i>
-                    <p class="text-black md:text-lg font-medium">Flexible Cooperation</p>
-                </div>
-                <div class="service-item flex items-center justify-center space-x-4 opacity-0 translate-y-10">
-                    <i class="fas fa-clock text-[#f5a222] text-3xl glowing-blue"></i>
-                    <p class="text-black md:text-lg font-medium">On-Time Delivery</p>
-                </div>
-                <div class="service-item flex items-center justify-center space-x-4 opacity-0 translate-y-10">
-                    <i class="fas fa-balance-scale text-[#f5a222] text-3xl glowing-blue"></i>
-                    <p class="text-black md:text-lg font-medium">Transparent Costs</p>
-                </div>
-                <div class="service-item flex items-center justify-center space-x-4 opacity-0 translate-y-10">
-                    <i class="fas fa-user-tie text-[#f5a222] text-3xl glowing-blue"></i>
-                    <p class="text-black md:text-lg font-medium">Qualified Developers</p>
-                </div>
-                <div class="service-item flex items-center justify-center space-x-4 opacity-0 translate-y-10">
-                    <i class="fas fa-bolt text-[#f5a222] text-3xl glowing-blue"></i>
-                    <p class="text-black md:text-lg font-medium">Quick Scale-Up</p>
-                </div>
-            </div>
+<section id="why-us-section" class="relative w-full py-16 overflow-hidden bg-none">
+  <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+
+    <!-- Subtitle -->
+    <h4 class="whyus-subtitle text-xl font-semibold text-[#f5a222] mb-3 opacity-0 translate-y-6">
+      Why Us Better
+    </h4>
+
+    <!-- Title -->
+    <h2 class="whyus-title text-2xl md:text-4xl font-bold text-black mb-8 opacity-0 translate-y-6">
+      Why Our Services are Better Than Others?
+    </h2>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 pt-5">
+
+      <!-- Card 1 -->
+      <div class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
+        <div class="relative z-10 flex flex-col items-center space-y-4">
+          <i class="fas fa-award text-[#f5a222] text-4xl"></i>
+          <p class="text-lg font-semibold">Quality Comes First</p>
+          <p class="text-sm md:text-base text-gray-300">
+            We deliver the highest quality work by maintaining strict quality standards and attention to detail.
+          </p>
         </div>
-    </section>
-    <style>
-        @keyframes slideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
+      </div>
 
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+      <!-- Card 2 -->
+      <div class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
+        <div class="relative z-10 flex flex-col items-center space-y-4">
+          <i class="fas fa-handshake text-[#f5a222] text-4xl"></i>
+          <p class="text-lg font-semibold">Flexible Cooperation</p>
+          <p class="text-sm md:text-base text-gray-300">
+            We adapt to your needs with flexible engagement models and transparent communication.
+          </p>
+        </div>
+      </div>
 
-        .why-slide-up {
-            animation: slideUp 0.8s ease forwards;
-        }
-    </style>
-    <script>
-        const whyUsSection = document.querySelector('#why-us-section');
-        const subtitle = whyUsSection.querySelector('.why-subtitle');
-        const title = whyUsSection.querySelector('.why-title');
-        const services = whyUsSection.querySelectorAll('.service-item');
+      <!-- Card 3 -->
+      <div class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
+        <div class="relative z-10 flex flex-col items-center space-y-4">
+          <i class="fas fa-clock text-[#f5a222] text-4xl"></i>
+          <p class="text-lg font-semibold">On-Time Delivery</p>
+          <p class="text-sm md:text-base text-gray-300">
+            We value your time and ensure timely project completion without compromising quality.
+          </p>
+        </div>
+      </div>
 
-        const whyUsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    subtitle.classList.add('why-slide-up');
-                    setTimeout(() => title.classList.add('why-slide-up'), 400);
-                    services.forEach((service, i) => {
-                        setTimeout(() => {
-                            service.classList.add('why-slide-up');
-                        }, 800 + i * 200);
-                    });
-                } else {
-                    subtitle.classList.remove('why-slide-up');
-                    title.classList.remove('why-slide-up');
-                    services.forEach(service => {
-                        service.classList.remove('why-slide-up');
-                        service.style.opacity = 0;
-                        service.style.transform = 'translateY(30px)';
-                    });
-                }
-            });
-        }, { threshold: 0.3 });
+      <!-- Card 4 -->
+      <div class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
+        <div class="relative z-10 flex flex-col items-center space-y-4">
+          <i class="fas fa-balance-scale text-[#f5a222] text-4xl"></i>
+          <p class="text-lg font-semibold">Transparent Costs</p>
+          <p class="text-sm md:text-base text-gray-300">
+            No hidden fees — we maintain full transparency in pricing and deliverables.
+          </p>
+        </div>
+      </div>
 
-        whyUsObserver.observe(whyUsSection);
-    </script>
+      <!-- Card 5 -->
+      <div class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
+        <div class="relative z-10 flex flex-col items-center space-y-4">
+          <i class="fas fa-user-tie text-[#f5a222] text-4xl"></i>
+          <p class="text-lg font-semibold">Qualified Developers</p>
+          <p class="text-sm md:text-base text-gray-300">
+            Our team consists of certified professionals skilled in modern technologies and frameworks.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
+        <div class="relative z-10 flex flex-col items-center space-y-4">
+          <i class="fas fa-bolt text-[#f5a222] text-4xl"></i>
+          <p class="text-lg font-semibold">Quick Scale-Up</p>
+          <p class="text-sm md:text-base text-gray-300">
+            Easily expand your project with our scalable solutions and rapid resource allocation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  @keyframes whyus-slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+.whyus-card:hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(16, 46, 98, 0.6), 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+  .whyus-slide-up {
+    animation: whyus-slideUp 0.8s ease forwards;
+  }
+
+  .whyus-title-slide {
+    animation: whyus-slideUp 0.8s ease forwards;
+  }
+
+  .whyus-subtitle-slide {
+    animation: whyus-slideUp 0.8s ease forwards;
+  }
+</style>
+<script>
+  const whyusSection = document.querySelector('#why-us-section');
+  const whyusCards = whyusSection.querySelectorAll('.whyus-card');
+  const whyusTitle = whyusSection.querySelector('.whyus-title');
+  const whyusSubtitle = whyusSection.querySelector('.whyus-subtitle');
+
+  const whyusObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          whyusSubtitle.classList.add('whyus-subtitle-slide');
+        }, 100);
+        setTimeout(() => {
+          whyusTitle.classList.add('whyus-title-slide');
+        }, 300);
+
+        whyusCards.forEach((card, i) => {
+          setTimeout(() => {
+            card.classList.add('whyus-slide-up');
+          }, 500 + i * 200);
+        });
+      } else {
+        whyusSubtitle.classList.remove('whyus-subtitle-slide');
+        whyusTitle.classList.remove('whyus-title-slide');
+        whyusCards.forEach(card => {
+          card.classList.remove('whyus-slide-up');
+          card.style.opacity = 0;
+          card.style.transform = 'translateY(30px)';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  whyusObserver.observe(whyusSection);
+</script>
+
+
 
 
 
