@@ -571,39 +571,39 @@
             font-weight: 900;
         }
     </style>
-    <section
+    <!-- <section
         class="bg-gradient-to-b from-[#102e62] to-black relative rounded-b-[10px] flex flex-col md:flex-row overflow-hidden items-center justify-center px-6 md:px-16 pt-20 md:pt-[13%] border border-white md:pb-5 gap-0 md:gap-10 ">
 
-        <!-- Left Image -->
+    
         <div class="w-full md:w-1/2 order-2 md:order-1 border border-black flex justify-center relative z-10 opacity-0 animate-image-slide-in border border-none"
             style="animation-delay: 0.5s;">
             <img src="./assests/homebannerimg.png" alt="Business Image" class="rounded-lg max-w-full h-auto">
         </div>
 
-        <!-- Right Content -->
+
         <div
             class="w-full md:w-1/2 order-1 md:order-2 flex flex-col justify-center text-white text-left space-y-3 md:space-y-6 relative z-10 border border-none">
 
-            <!-- Line 1 -->
+      
             <h2 class="text-lg md:text-xl font-medium opacity-0 animate-slide-in" style="animation-delay: 0.5s;">
                 👋 Hi We <span class="text-[#f5a222] text-2xl md:text-2xl font-bold animate-roll-down">Are GVR</span>
             </h2>
 
-            <!-- Line 2 -->
+    
             <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-snug opacity-0 animate-slide-in"
                 style="animation-delay: 1.5s;">
                 Grow your Business <br>
                 Organic & IT Solution Technology
             </h1>
 
-            <!-- Line 3 -->
+       
             <p class="text-gray-300 text-base md:text-lg max-w-xl opacity-0 animate-fade-in"
                 style="animation-delay: 2.5s;">
                 In today’s competitive business, the demand for efficient and cost-effective IT
                 solutions has never been more critical.
             </p>
 
-            <!-- Button -->
+ 
             <div class="opacity-0 animate-pop-up" style="animation-delay: 3.5s;">
                 <a href="contact"
                     class="banner-btn text-[#f5a222] font-bold border border-[#f5a222] bg-[#102e62] group animate-float px-3 py-2 text-sm md:px-4 md:py-2 md:text-lg">
@@ -618,7 +618,69 @@
             </div>
 
         </div>
-    </section>
+    </section> -->
+
+<section
+    class="relative w-full rounded-b-[10px] flex flex-col justify-center items-center px-6 md:px-16 pt-20 md:pt-[13%] pb-10 overflow-hidden">
+
+    <!-- Background Image Carousel -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+        <div class="carousel-images w-full h-full absolute top-0 left-0">
+            <img src="./assests/it-solutions-03.jpg" alt="Banner 1" class="w-full h-full object-cover absolute top-0 left-0 opacity-100 transition-opacity duration-1000">
+            <img src="./assests/it-solutions-06.jpeg" alt="Banner 2" class="w-full h-full object-cover absolute top-0 left-0 opacity-0 transition-opacity duration-1000">
+            <img src="./assests/it-solutions-04.png" alt="Banner 3" class="w-full h-full object-cover absolute top-0 left-0 opacity-0 transition-opacity duration-1000">
+        </div>
+    </div>
+    <div class="absolute top-0 left-0 w-full h-full bg-[black]/70 z-0"></div>
+    <div class="relative z-10 w-full max-w-6xl text-left text-white flex flex-col space-y-3 md:space-y-6">
+
+        <h2 class="text-lg md:text-xl font-medium opacity-0 animate-slide-in" style="animation-delay: 0.5s;">
+            👋 Hi We <span class="text-[#f5a222] text-2xl md:text-2xl font-bold animate-roll-down">Are GVR</span>
+        </h2>
+
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-snug opacity-0 animate-slide-in"
+            style="animation-delay: 1.5s;">
+            Grow your Business <br>
+            Organic & IT Solution Technology
+        </h1>
+
+        <p class="text-gray-200 text-base md:text-lg max-w-xl opacity-0 animate-fade-in"
+            style="animation-delay: 2.5s;">
+            In today’s competitive business, the demand for efficient and cost-effective IT
+            solutions has never been more critical.
+        </p>
+
+        <div class="opacity-0 animate-pop-up" style="animation-delay: 3.5s;">
+            <a href="contact"
+                class="banner-btn text-[#f5a222] font-bold border border-[#f5a222] bg-[#102e62] group animate-float px-3 py-2 text-sm md:px-4 md:py-2 md:text-lg">
+                <span class="banner-btn-content">Get Started</span>
+                <span class="banner-btn-arrow">
+                    <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0l-6 6m6-6l6 6" />
+                    </svg>
+                </span>
+            </a>
+        </div>
+
+    </div>
+</section>
+<script>
+    const images = document.querySelectorAll('.carousel-images img');
+    let current = 0;
+
+    setInterval(() => {
+        images[current].classList.remove('opacity-100');
+        images[current].classList.add('opacity-0');
+
+        current = (current + 1) % images.length;
+
+        images[current].classList.remove('opacity-0');
+        images[current].classList.add('opacity-100');
+    }, 5000); 
+</script>
+
+
 
     <!-- BRAND COLLEBRATION SECTION -->
     <style>
