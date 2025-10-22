@@ -91,15 +91,13 @@
 </head>
 
 <body class="relative min-h-screen bg-gray-100 text-white">
-<nav x-data="{ 
+    <nav x-data="{ 
         open: false, 
         dropdowns: { company: false, products: false, services: false }, 
         activeLink: '', 
         scrolled: false 
-    }"
-    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
-    class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md"
-    :style="scrolled
+    }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+        class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md" :style="scrolled
         ? (window.innerWidth >= 768 
             ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);'
             : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);')
@@ -400,11 +398,17 @@
     </style>
 
     <!-- CLOUD MIGRATION HOME BANNER SECTION -->
-    <section id="cloud-banner-section" class="relative w-full pt-[10%] pb-5 md:pt-[5%] overflow-hidden">
+    <section id="cloud-banner-section"
+        class="relative w-full pt-10 pb-5 md:py-20 mb-5  overflow-hidden bg-cover bg-center bg-no-repeat"
+        style="background-image: url('./assests/gvrbackground.jpg');">
+
+        <!-- Dim Gradient Overlay -->
+        <div class="absolute inset-0 bg-[#102e62]/90 z-0"></div>
+
         <!-- Content -->
-        <div class="relative z-10 max-w-6xl mx-auto px-6 pt-16 text-center">
+        <div class="relative z-10 max-w-6xl mx-auto px-6 py-14 md:pt-10 md:pb-0 text-center">
             <p id="cloud-subtitle"
-                class="italic font-semibold text-black text-md md:text-lg mb-1 opacity-0 translate-y-10">
+                class="italic font-semibold text-gray-200 text-md md:text-lg mt-8 mb-2 md:mb-4  opacity-0 translate-y-10">
                 Services Details
             </p>
             <h2 id="cloud-title" class="text-xl md:text-4xl font-bold text-[#f5a222] md:mb-10 opacity-0 translate-y-10">
@@ -434,32 +438,24 @@
             const cloudSubtitle = document.getElementById("cloud-subtitle");
             const cloudTitle = document.getElementById("cloud-title");
             const cloudSection = document.getElementById("cloud-banner-section");
-            const cloudObserver = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            cloudSubtitle.classList.remove("animate-cloudSlideUp");
-                            cloudTitle.classList.remove("animate-cloudSlideUp");
-                            void cloudSubtitle.offsetWidth;
-                            void cloudTitle.offsetWidth;
-                            cloudSubtitle.classList.add("animate-cloudSlideUp");
-                            setTimeout(() => {
-                                cloudTitle.classList.add("animate-cloudSlideUp");
-                            }, 500);
-                        } else {
-                            cloudSubtitle.classList.remove("animate-cloudSlideUp");
-                            cloudTitle.classList.remove("animate-cloudSlideUp");
-                        }
-                    });
-                },
-                { threshold: 0.3 }
-            );
+
+            const cloudObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        cloudSubtitle.classList.add("animate-cloudSlideUp");
+                        setTimeout(() => cloudTitle.classList.add("animate-cloudSlideUp"), 500);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
             cloudObserver.observe(cloudSection);
         });
     </script>
 
+
     <!-- VIDEO SECTION -->
-    <section id="video-section" class="relative w-full overflow-hidden py-0 md:py-10">
+    <section id="video-section" class="relative w-full overflow-hidden py-5 md:py-10">
         <div class="relative z-10 max-w-6xl mx-auto px-4">
             <div id="video-container"
                 class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg transition-opacity duration-1000 opacity-0 relative">

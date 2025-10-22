@@ -91,15 +91,13 @@
 </head>
 
 <body class="relative min-h-screen bg-gray-100 text-white">
-<nav x-data="{ 
+    <nav x-data="{ 
         open: false, 
         dropdowns: { company: false, products: false, services: false }, 
         activeLink: '', 
         scrolled: false 
-    }"
-    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
-    class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md"
-    :style="scrolled
+    }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+        class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md" :style="scrolled
         ? (window.innerWidth >= 768 
             ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);'
             : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);')
@@ -401,54 +399,58 @@
 
 
     <!-- Portfolio Banner Section -->
-      <section id="about"
-        class="relative w-full pt-10 pb-5 md:py-20 mb-5 bg-gradient-to-b from-[#102e62] to-black flex flex-col items-center justify-center text-center overflow-hidden">
-        <div class="relative z-10 max-w-3xl px-6 pt-20">
+    <section id="portfolio-banner"
+        class="relative w-full pt-10 pb-5 md:py-20 mb-5 bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center text-center overflow-hidden"
+        style="background-image: url('./assests/gvrbackground.jpg');">
+
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-[#102e62]/90 z-0"></div>
+
+        <div class="relative z-10 max-w-3xl px-6 py-14 md:pt-10 md:pb-0">
             <!-- Title -->
-            <h2 class="text-4xl md:text-5xl font-bold text-[#f5a222] drop-shadow-lg mb-4 pop-slide-down">
+            <h2
+                class="portfolio-banner-title text-3xl sm:text-4xl md:text-5xl font-bold text-[#f5a222] drop-shadow-lg mt-8 mb-2 md:mb-4 portfolio-banner-pop-slide-down">
                 Our Portfolio
             </h2>
+
             <!-- Subtitle -->
-            <p class="text-md sm:text-lg md:text-xl italic text-gray-100 pop-slide-down delay-200">
-              Showcasing Our Work
+            <p
+                class="portfolio-banner-subtitle text-md sm:text-lg md:text-xl italic text-gray-100 portfolio-banner-pop-slide-down portfolio-banner-delay-200">
+                Showcasing Our Work
             </p>
         </div>
     </section>
     <style>
-        .pop-slide-down {
+        .portfolio-banner-pop-slide-down {
             opacity: 0;
             transform: translateY(-40px);
             transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
         }
 
-        .delay-200 {
+        .portfolio-banner-delay-200 {
             transition-delay: 0.2s;
         }
 
-        .visible {
+        .portfolio-banner-visible {
             opacity: 1 !important;
             transform: translateY(0) !important;
         }
     </style>
     <script>
-        const observer = new IntersectionObserver(entries => {
+        const portfolioBannerObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                const children = entry.target.querySelectorAll('.pop-slide-down');
+                const elements = entry.target.querySelectorAll('.portfolio-banner-pop-slide-down');
+
                 if (entry.isIntersecting) {
-                    children.forEach((el, i) => {
-                        setTimeout(() => {
-                            el.classList.add('visible');
-                        }, i * 200);
+                    elements.forEach((el, i) => {
+                        setTimeout(() => el.classList.add('portfolio-banner-visible'), i * 200);
                     });
-                } else {
-                    children.forEach(el => {
-                        el.classList.remove('visible');
-                    });
+                      observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.3 });
 
-        observer.observe(document.querySelector('#about'));
+        portfolioBannerObserver.observe(document.querySelector('#portfolio-banner'));
     </script>
 
 

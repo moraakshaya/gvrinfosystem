@@ -91,15 +91,13 @@
 </head>
 
 <body class="relative min-h-screen bg-gray-100 text-white">
-<nav x-data="{ 
+    <nav x-data="{ 
         open: false, 
         dropdowns: { company: false, products: false, services: false }, 
         activeLink: '', 
         scrolled: false 
-    }"
-    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
-    class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md"
-    :style="scrolled
+    }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+        class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md" :style="scrolled
         ? (window.innerWidth >= 768 
             ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);'
             : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);')
@@ -401,61 +399,67 @@
 
 
     <!-- SERVICES BANNER SECTION -->
-     <section id="about"
-        class="relative w-full pt-10 pb-5 md:py-20 bg-gradient-to-b from-[#102e62] to-black flex flex-col items-center justify-center text-center overflow-hidden">
-        <div class="relative z-10 max-w-3xl px-6 pt-20">
+    <section id="service-banner"
+        class="relative w-full pt-10 pb-5 md:py-20 mb-5 bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center text-center overflow-hidden"
+        style="background-image: url('./assests/gvrbackground.jpg');">
+
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-[#102e62]/90 z-0"></div>
+
+        <div class="relative z-10 max-w-3xl px-6 py-14 md:pt-10 md:pb-0">
             <!-- Title -->
-            <h2 class="text-4xl md:text-5xl font-bold text-[#f5a222] drop-shadow-lg mb-4 pop-slide-down">
+            <h2
+                class="service-banner-title text-3xl sm:text-4xl md:text-5xl font-bold text-[#f5a222] drop-shadow-lg mt-8 mb-2 md:mb-4 service-banner-pop-slide-down">
                 Our Services
             </h2>
+
             <!-- Subtitle -->
-            <p class="text-md sm:text-lg md:text-xl italic text-gray-100 pop-slide-down delay-200">
-                What We Offer
+            <p
+                class="service-banner-subtitle text-md sm:text-lg md:text-xl italic text-gray-100 service-banner-pop-slide-down service-banner-delay-200">
+                Discover What We Offer
             </p>
         </div>
     </section>
     <style>
-        .pop-slide-down {
+        .service-banner-pop-slide-down {
             opacity: 0;
             transform: translateY(-40px);
             transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
         }
 
-        .delay-200 {
+        .service-banner-delay-200 {
             transition-delay: 0.2s;
         }
 
-        .visible {
+        .service-banner-visible {
             opacity: 1 !important;
             transform: translateY(0) !important;
         }
     </style>
     <script>
-        const observer = new IntersectionObserver(entries => {
+        const serviceBannerObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                const children = entry.target.querySelectorAll('.pop-slide-down');
                 if (entry.isIntersecting) {
-                    children.forEach((el, i) => {
-                        setTimeout(() => {
-                            el.classList.add('visible');
-                        }, i * 200);
+                    const elements = entry.target.querySelectorAll('.service-banner-pop-slide-down');
+                    elements.forEach((el, i) => {
+                        setTimeout(() => el.classList.add('service-banner-visible'), i * 200);
                     });
-                } else {
-                    children.forEach(el => {
-                        el.classList.remove('visible');
-                    });
+                    
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.3 });
 
-        observer.observe(document.querySelector('#about'));
+        serviceBannerObserver.observe(document.querySelector('#service-banner'));
+
     </script>
 
     <!-- SERVICE HOME SECTION -->
     <section id="service-home-section" class="relative w-full pt-10 pb-5 md:pt-20 overflow-hidden">
         <div class="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 items-center">
             <div class="flex justify-center md:justify-start">
-                <img src="./assests/servicebannerimg.jpg" alt="Service Image" class="rounded-[25px] md:rounded-[50px] shadow-[5px_5px_10px_#102e62,_5px_5px_10px_black] max-w-full">
+                <img src="./assests/servicebannerimg.jpg" alt="Service Image"
+                    class="rounded-[25px] md:rounded-[50px] shadow-[5px_5px_10px_#102e62,_5px_5px_10px_black] max-w-full">
             </div>
             <div class="space-y-3 md:space-y-6 text-left">
                 <p id="service-home-subtitle"
@@ -911,153 +915,162 @@
     </script>
 
     <!-- WHY US SECTION -->
-<section id="why-us-section" class="relative w-full py-16 overflow-hidden bg-none">
-  <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+    <section id="why-us-section" class="relative w-full py-16 overflow-hidden bg-none">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
 
-    <!-- Subtitle -->
-    <h4 class="whyus-subtitle text-xl font-semibold text-[#f5a222] mb-3 opacity-0 translate-y-6">
-      Why Us Better
-    </h4>
+            <!-- Subtitle -->
+            <h4 class="whyus-subtitle text-xl font-semibold text-[#f5a222] mb-3 opacity-0 translate-y-6">
+                Why Us Better
+            </h4>
 
-    <!-- Title -->
-    <h2 class="whyus-title text-2xl md:text-4xl font-bold text-black mb-8 opacity-0 translate-y-6">
-      Why Our Services are Better Than Others?
-    </h2>
+            <!-- Title -->
+            <h2 class="whyus-title text-2xl md:text-4xl font-bold text-black mb-8 opacity-0 translate-y-6">
+                Why Our Services are Better Than Others?
+            </h2>
 
-    <!-- Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 pt-5">
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 pt-5">
 
-      <!-- Card 1 -->
-      <div class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
-        <div class="relative z-10 flex flex-col items-center space-y-4">
-          <i class="fas fa-award text-[#f5a222] text-4xl"></i>
-          <p class="text-lg font-semibold">Quality Comes First</p>
-          <p class="text-sm md:text-base text-gray-300">
-            We deliver the highest quality work by maintaining strict quality standards and attention to detail.
-          </p>
+                <!-- Card 1 -->
+                <div
+                    class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
+                    <div class="relative z-10 flex flex-col items-center space-y-4">
+                        <i class="fas fa-award text-[#f5a222] text-4xl"></i>
+                        <p class="text-lg font-semibold">Quality Comes First</p>
+                        <p class="text-sm md:text-base text-gray-300">
+                            We deliver the highest quality work by maintaining strict quality standards and attention to
+                            detail.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
+                    <div class="relative z-10 flex flex-col items-center space-y-4">
+                        <i class="fas fa-handshake text-[#f5a222] text-4xl"></i>
+                        <p class="text-lg font-semibold">Flexible Cooperation</p>
+                        <p class="text-sm md:text-base text-gray-300">
+                            We adapt to your needs with flexible engagement models and transparent communication.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
+                    <div class="relative z-10 flex flex-col items-center space-y-4">
+                        <i class="fas fa-clock text-[#f5a222] text-4xl"></i>
+                        <p class="text-lg font-semibold">On-Time Delivery</p>
+                        <p class="text-sm md:text-base text-gray-300">
+                            We value your time and ensure timely project completion without compromising quality.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
+                    <div class="relative z-10 flex flex-col items-center space-y-4">
+                        <i class="fas fa-balance-scale text-[#f5a222] text-4xl"></i>
+                        <p class="text-lg font-semibold">Transparent Costs</p>
+                        <p class="text-sm md:text-base text-gray-300">
+                            No hidden fees — we maintain full transparency in pricing and deliverables.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div
+                    class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
+                    <div class="relative z-10 flex flex-col items-center space-y-4">
+                        <i class="fas fa-user-tie text-[#f5a222] text-4xl"></i>
+                        <p class="text-lg font-semibold">Qualified Developers</p>
+                        <p class="text-sm md:text-base text-gray-300">
+                            Our team consists of certified professionals skilled in modern technologies and frameworks.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div
+                    class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
+                    <div class="relative z-10 flex flex-col items-center space-y-4">
+                        <i class="fas fa-bolt text-[#f5a222] text-4xl"></i>
+                        <p class="text-lg font-semibold">Quick Scale-Up</p>
+                        <p class="text-sm md:text-base text-gray-300">
+                            Easily expand your project with our scalable solutions and rapid resource allocation.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+    <style>
+        @keyframes whyus-slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
 
-      <!-- Card 2 -->
-      <div class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
-        <div class="relative z-10 flex flex-col items-center space-y-4">
-          <i class="fas fa-handshake text-[#f5a222] text-4xl"></i>
-          <p class="text-lg font-semibold">Flexible Cooperation</p>
-          <p class="text-sm md:text-base text-gray-300">
-            We adapt to your needs with flexible engagement models and transparent communication.
-          </p>
-        </div>
-      </div>
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-      <!-- Card 3 -->
-      <div class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
-        <div class="relative z-10 flex flex-col items-center space-y-4">
-          <i class="fas fa-clock text-[#f5a222] text-4xl"></i>
-          <p class="text-lg font-semibold">On-Time Delivery</p>
-          <p class="text-sm md:text-base text-gray-300">
-            We value your time and ensure timely project completion without compromising quality.
-          </p>
-        </div>
-      </div>
+        .whyus-card:hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(16, 46, 98, 0.6), 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
 
-      <!-- Card 4 -->
-      <div class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
-        <div class="relative z-10 flex flex-col items-center space-y-4">
-          <i class="fas fa-balance-scale text-[#f5a222] text-4xl"></i>
-          <p class="text-lg font-semibold">Transparent Costs</p>
-          <p class="text-sm md:text-base text-gray-300">
-            No hidden fees — we maintain full transparency in pricing and deliverables.
-          </p>
-        </div>
-      </div>
+        .whyus-slide-up {
+            animation: whyus-slideUp 0.8s ease forwards;
+        }
 
-      <!-- Card 5 -->
-      <div class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
-        <div class="relative z-10 flex flex-col items-center space-y-4">
-          <i class="fas fa-user-tie text-[#f5a222] text-4xl"></i>
-          <p class="text-lg font-semibold">Qualified Developers</p>
-          <p class="text-sm md:text-base text-gray-300">
-            Our team consists of certified professionals skilled in modern technologies and frameworks.
-          </p>
-        </div>
-      </div>
+        .whyus-title-slide {
+            animation: whyus-slideUp 0.8s ease forwards;
+        }
 
-      <!-- Card 6 -->
-      <div class="whyus-card relative bg-gradient-to-b from-[#102e62] to-black p-8 rounded-2xl text-center text-white overflow-hidden transition-all duration-500 transform opacity-0 translate-y-10">
-        <div class="relative z-10 flex flex-col items-center space-y-4">
-          <i class="fas fa-bolt text-[#f5a222] text-4xl"></i>
-          <p class="text-lg font-semibold">Quick Scale-Up</p>
-          <p class="text-sm md:text-base text-gray-300">
-            Easily expand your project with our scalable solutions and rapid resource allocation.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-  @keyframes whyus-slideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-.whyus-card:hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 8px 20px rgba(16, 46, 98, 0.6), 0 4px 6px rgba(0, 0, 0, 0.3);
-}
+        .whyus-subtitle-slide {
+            animation: whyus-slideUp 0.8s ease forwards;
+        }
+    </style>
+    <script>
+        const whyusSection = document.querySelector('#why-us-section');
+        const whyusCards = whyusSection.querySelectorAll('.whyus-card');
+        const whyusTitle = whyusSection.querySelector('.whyus-title');
+        const whyusSubtitle = whyusSection.querySelector('.whyus-subtitle');
 
-  .whyus-slide-up {
-    animation: whyus-slideUp 0.8s ease forwards;
-  }
+        const whyusObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        whyusSubtitle.classList.add('whyus-subtitle-slide');
+                    }, 100);
+                    setTimeout(() => {
+                        whyusTitle.classList.add('whyus-title-slide');
+                    }, 300);
 
-  .whyus-title-slide {
-    animation: whyus-slideUp 0.8s ease forwards;
-  }
+                    whyusCards.forEach((card, i) => {
+                        setTimeout(() => {
+                            card.classList.add('whyus-slide-up');
+                        }, 500 + i * 200);
+                    });
+                } else {
+                    whyusSubtitle.classList.remove('whyus-subtitle-slide');
+                    whyusTitle.classList.remove('whyus-title-slide');
+                    whyusCards.forEach(card => {
+                        card.classList.remove('whyus-slide-up');
+                        card.style.opacity = 0;
+                        card.style.transform = 'translateY(30px)';
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
 
-  .whyus-subtitle-slide {
-    animation: whyus-slideUp 0.8s ease forwards;
-  }
-</style>
-<script>
-  const whyusSection = document.querySelector('#why-us-section');
-  const whyusCards = whyusSection.querySelectorAll('.whyus-card');
-  const whyusTitle = whyusSection.querySelector('.whyus-title');
-  const whyusSubtitle = whyusSection.querySelector('.whyus-subtitle');
-
-  const whyusObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          whyusSubtitle.classList.add('whyus-subtitle-slide');
-        }, 100);
-        setTimeout(() => {
-          whyusTitle.classList.add('whyus-title-slide');
-        }, 300);
-
-        whyusCards.forEach((card, i) => {
-          setTimeout(() => {
-            card.classList.add('whyus-slide-up');
-          }, 500 + i * 200);
-        });
-      } else {
-        whyusSubtitle.classList.remove('whyus-subtitle-slide');
-        whyusTitle.classList.remove('whyus-title-slide');
-        whyusCards.forEach(card => {
-          card.classList.remove('whyus-slide-up');
-          card.style.opacity = 0;
-          card.style.transform = 'translateY(30px)';
-        });
-      }
-    });
-  }, { threshold: 0.3 });
-
-  whyusObserver.observe(whyusSection);
-</script>
+        whyusObserver.observe(whyusSection);
+    </script>
 
 
 

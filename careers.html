@@ -91,15 +91,13 @@
 </head>
 
 <body class="relative min-h-screen bg-gray-100 text-white">
-<nav x-data="{ 
+    <nav x-data="{ 
         open: false, 
         dropdowns: { company: false, products: false, services: false }, 
         activeLink: '', 
         scrolled: false 
-    }"
-    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
-    class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md"
-    :style="scrolled
+    }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+        class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md" :style="scrolled
         ? (window.innerWidth >= 768 
             ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);'
             : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);')
@@ -401,10 +399,15 @@
 
     <!-- Careers Section -->
     <section id="careers"
-        class="relative w-full pt-5 pb-5 md:pt-20 md:pb-10 mb-5 bg-gradient-to-b from-[#102e62] to-black flex flex-col items-center justify-center text-center overflow-hidden">
-        <div class="relative z-10 max-w-3xl px-6 pt-20">
+        class="relative w-full pt-10 pb-5 md:py-20 mb-5 flex flex-col items-center justify-center text-center overflow-hidden bg-cover bg-center bg-no-repeat"
+        style="background-image: url('./assests/gvrbackground.jpg');">
+
+        <!-- Dim Gradient Overlay -->
+        <div class="absolute inset-0 bg-[#102e62]/90 z-0"></div>
+
+        <div class="relative z-10 max-w-3xl px-6 py-14 md:pt-10 md:pb-0">
             <!-- Title -->
-            <h2 class="text-3xl md:text-5xl font-bold text-[#f5a222] drop-shadow-lg mb-4 careers-slide-down">
+            <h2 class="text-3xl md:text-5xl font-bold text-[#f5a222] drop-shadow-lg mt-8 mb-2 md:mb-4 careers-slide-down">
                 Careers@GVR
             </h2>
             <!-- Subtitle -->
@@ -431,97 +434,93 @@
         }
     </style>
     <script>
-        const careersObserver = new IntersectionObserver(entries => {
+        const careersObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                const children = entry.target.querySelectorAll('.careers-slide-down');
+                if (entry.isIntersecting) {
+                    const children = entry.target.querySelectorAll('.careers-slide-down');
+                    children.forEach((el, i) => {
+                        setTimeout(() => el.classList.add('careers-visible'), i * 200);
+                    });
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        careersObserver.observe(document.querySelector('#careers'));
+    </script>
+
+    <!-- Features Section Full Width -->
+    <section id="features"
+        class="relative w-full overflow-hidden pb-5 md:pb-0 md:px-20 flex items-center justify-center">
+        <div class="relative w-full max-w-6xl flex flex-col md:flex-row items-center gap-5 md:gap-10">
+
+            <!-- Text Content (7/12) -->
+            <div class="w-full md:w-7/12 space-y-3 md:space-y-6 px-6 md:pl-[8%] order-2 md:order-1">
+                <h2 class="text-2xl md:text-4xl font-bold text-black features-fade-up">
+                    Why Work With Us?
+                </h2>
+                <ul class="list-disc text-md md:text-xl list-inside space-y-3 text-gray-800">
+                    <li class="features-fade-up">Work on cutting-edge projects with top brands</li>
+                    <li class="features-slide-left">Collaborate with industry leaders</li>
+                    <li class="features-slide-right">Accelerate your career growth</li>
+                    <li class="features-fade-up">Culture that fosters innovation & teamwork</li>
+                </ul>
+            </div>
+
+            <!-- Image (5/12) -->
+            <div class="w-full md:w-6/12 px-6 md:px-0 order-1 md:order-2 py-5 rounded-[25px]">
+                <img src="./assests/whyjoinusimg.jpg" alt="Teamwork"
+                    class="rounded-[25px] shadow-[5px_5px_10px_#102e62,_5px_5px_10px_black] features-slide-right w-full h-auto object-cover">
+            </div>
+
+        </div>
+    </section>
+    <style>
+        .features-fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
+        }
+
+        .features-slide-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
+        }
+
+        .features-slide-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
+        }
+
+        .features-visible {
+            opacity: 1 !important;
+            transform: translateX(0) translateY(0) !important;
+        }
+    </style>
+    <script>
+        const featuresObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const children = entry.target.querySelectorAll(
+                    '.features-fade-up, .features-slide-left, .features-slide-right'
+                );
                 if (entry.isIntersecting) {
                     children.forEach((el, i) => {
                         setTimeout(() => {
-                            el.classList.add('careers-visible');
+                            el.classList.add('features-visible');
                         }, i * 200);
                     });
                 } else {
                     children.forEach(el => {
-                        el.classList.remove('careers-visible');
+                        el.classList.remove('features-visible');
                     });
                 }
             });
         }, { threshold: 0.3 });
 
-        careersObserver.observe(document.querySelector('#careers'));
+        featuresObserver.observe(document.querySelector('#features'));
     </script>
-
-    <!-- Features Section Full Width -->
-<section id="features" class="relative w-full overflow-hidden pb-5 md:pb-0 md:px-20 flex items-center justify-center">
-  <div class="relative w-full max-w-6xl flex flex-col md:flex-row items-center gap-5 md:gap-10">
-    
-    <!-- Text Content (7/12) -->
-    <div class="w-full md:w-7/12 space-y-3 md:space-y-6 px-6 md:pl-[8%] order-2 md:order-1">
-      <h2 class="text-2xl md:text-4xl font-bold text-black features-fade-up">
-        Why Work With Us?
-      </h2>
-      <ul class="list-disc text-md md:text-xl list-inside space-y-3 text-gray-800">
-        <li class="features-fade-up">Work on cutting-edge projects with top brands</li>
-        <li class="features-slide-left">Collaborate with industry leaders</li>
-        <li class="features-slide-right">Accelerate your career growth</li>
-        <li class="features-fade-up">Culture that fosters innovation & teamwork</li>
-      </ul>
-    </div>
-
-    <!-- Image (5/12) -->
-    <div class="w-full md:w-6/12 px-6 md:px-0 order-1 md:order-2 py-5 rounded-[25px]">
-      <img src="./assests/whyjoinusimg.jpg" alt="Teamwork"
-        class="rounded-[25px] shadow-[5px_5px_10px_#102e62,_5px_5px_10px_black] features-slide-right w-full h-auto object-cover">
-    </div>
-
-  </div>
-</section>
-<style>
-  .features-fade-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
-  }
-
-  .features-slide-left {
-    opacity: 0;
-    transform: translateX(-40px);
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
-  }
-
-  .features-slide-right {
-    opacity: 0;
-    transform: translateX(40px);
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
-  }
-
-  .features-visible {
-    opacity: 1 !important;
-    transform: translateX(0) translateY(0) !important;
-  }
-</style>
-<script>
-  const featuresObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const children = entry.target.querySelectorAll(
-        '.features-fade-up, .features-slide-left, .features-slide-right'
-      );
-      if (entry.isIntersecting) {
-        children.forEach((el, i) => {
-          setTimeout(() => {
-            el.classList.add('features-visible');
-          }, i * 200);
-        });
-      } else {
-        children.forEach(el => {
-          el.classList.remove('features-visible');
-        });
-      }
-    });
-  }, { threshold: 0.3 });
-
-  featuresObserver.observe(document.querySelector('#features'));
-</script>
 
 
     <!-- Our Technologies Section -->

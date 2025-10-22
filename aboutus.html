@@ -91,15 +91,13 @@
 </head>
 
 <body class="relative min-h-screen bg-gray-100 text-white">
-   <nav x-data="{ 
+    <nav x-data="{ 
         open: false, 
         dropdowns: { company: false, products: false, services: false }, 
         activeLink: '', 
         scrolled: false 
-    }"
-    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
-    class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md"
-    :style="scrolled
+    }" x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+        class="fixed top-0 left-0 w-full z-50 animate-slide-down transition-all duration-500 shadow-md" :style="scrolled
         ? (window.innerWidth >= 768 
             ? 'background: linear-gradient(135deg, white 25%, #f5a222 25% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);'
             : 'background: linear-gradient(135deg, white 45%, #f5a222 45% 100%); box-shadow: 0 4px 6px rgba(0,0,0,0.1);')
@@ -400,62 +398,66 @@
     </style>
 
     <!-- ABOUT US BANNER SECTION -->
-    <section id="about"
-        class="relative bg-gradient-to-b from-[#102e62] to-black w-full pt-10 pb-5 md:py-20  flex flex-col items-center justify-center text-center overflow-hidden">
-        <div class="relative z-10 max-w-3xl px-6 pt-20">
-            <!-- Title -->
-            <h2 class="text-4xl md:text-5xl font-bold text-[#f5a222] drop-shadow-lg mb-4 pop-slide-down">
-                About Us
-            </h2>
-            <!-- Subtitle -->
-            <p class="text-md sm:text-lg md:text-xl italic text-gray-100 pop-slide-down delay-200">
-                We are committed to providing exceptional healthcare services with compassion and expertise.
-            </p>
-        </div>
-    </section>
-    <style>
-        .pop-slide-down {
-            opacity: 0;
-            transform: translateY(-40px);
-            transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
-        }
+  <section id="about"
+    class="relative bg-cover bg-center bg-no-repeat w-full pt-10 pb-5 md:py-20 flex flex-col items-center justify-center text-center overflow-hidden"
+    style="background-image: url('./assests/gvrbackground.jpg');">
+    
+    <!-- Dim Overlay -->
+    <div class="absolute inset-0 bg-[#102e62]/90 z-0"></div>
 
-        .delay-200 {
-            transition-delay: 0.2s;
-        }
+    <div class="relative z-10 max-w-3xl px-6 py-14 md:pt-10 md:pb-0">
+        <!-- Title -->
+        <h2 class="text-4xl md:text-5xl font-bold text-[#f5a222] drop-shadow-lg mt-8 mb-2 md:mb-4 about-pop-slide-down">
+            About Us
+        </h2>
+        <!-- Subtitle -->
+        <p class="text-md sm:text-lg md:text-xl italic text-gray-100 about-pop-slide-down about-delay-200">
+            We are committed to providing exceptional healthcare services with compassion and expertise.
+        </p>
+    </div>
+</section>
 
-        .visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    </style>
-    <script>
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                const children = entry.target.querySelectorAll('.pop-slide-down');
-                if (entry.isIntersecting) {
-                    children.forEach((el, i) => {
-                        setTimeout(() => {
-                            el.classList.add('visible');
-                        }, i * 200);
-                    });
-                } else {
-                    children.forEach(el => {
-                        el.classList.remove('visible');
-                    });
-                }
-            });
-        }, { threshold: 0.3 });
+<style>
+    /* Slide-down Animation */
+    .about-pop-slide-down {
+        opacity: 0;
+        transform: translateY(-40px);
+        transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
+    }
+    .about-delay-200 {
+        transition-delay: 0.2s;
+    }
+    .about-visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+</style>
 
-        observer.observe(document.querySelector('#about'));
-    </script>
+<script>
+    // Intersection Observer for About Section
+    const aboutObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const elements = entry.target.querySelectorAll('.about-pop-slide-down');
+            if (entry.isIntersecting) {
+                elements.forEach((el, i) => {
+                    setTimeout(() => el.classList.add('about-visible'), i * 200);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    aboutObserver.observe(document.querySelector('#about'));
+</script>
+
 
     <!-- OUR HISTORY / OUR MISSION / OUR VISION SECTION -->
     <section class="relative w-full pb-5 pt-10 md:pt-20 bg-none overflow-hidden" id="about-info">
         <div class="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-12 items-center">
             <!-- Left Side (Image) -->
             <div class="flex justify-center">
-                <img src="./assests/aboutbannerimg.jpg" alt="Our Hospital" class="rounded-[25px] md:rounded-[50px] shadow-[5px_5px_10px_#102e62,_5px_5px_10px_black]" />
+                <img src="./assests/aboutbannerimg.jpg" alt="Our Hospital"
+                    class="rounded-[25px] md:rounded-[50px] shadow-[5px_5px_10px_#102e62,_5px_5px_10px_black]" />
             </div>
             <!-- Right Side (Text Content) -->
             <div class="space-y-6 md:space-y-12">

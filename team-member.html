@@ -400,13 +400,19 @@
     </style>
 
     <!--  TEAM MEMBER BANNER SECTION-->
-    <section id="team-banner-section" class="relative w-full bg-gradient-to-b from-[#102e62] to-black pt-[10%] pb-0 md:pt-[5%] overflow-hidden">
-        <div class="relative z-10 max-w-6xl mx-auto px-6 pt-16 text-center">
-            <p id="team-subtitle" class="italic text-white text-md md:text-lg mb-1 opacity-0 translate-y-10">
+    <section id="team-banner-section"
+        class="relative w-full pt-10 pb-5 md:py-20 mb-5 overflow-hidden bg-cover bg-center bg-no-repeat"
+        style="background-image: url('./assests/gvrbackground.jpg');">
+
+        <!-- Dim Gradient Overlay -->
+        <div class="absolute inset-0 bg-[#102e62]/90 z-0"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 py-14 md:pt-10 md:pb-0 text-center">
+            <p id="team-subtitle" class="italic text-white text-md md:text-lg  mt-10 mb-2  opacity-0 translate-y-10">
                 Team Details
             </p>
             <h2 id="team-title" class="text-2xl md:text-4xl font-bold text-[#f5a222] md:mb-10 opacity-0 translate-y-10">
-                Team Details
+                Meet Our Experts
             </h2>
         </div>
     </section>
@@ -433,26 +439,18 @@
             const teamTitle = document.getElementById("team-title");
             const teamSection = document.getElementById("team-banner-section");
 
-            const teamObserver = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            teamSubtitle.classList.remove("animate-teamSlideUp");
-                            teamTitle.classList.remove("animate-teamSlideUp");
-                            void teamSubtitle.offsetWidth;
-                            void teamTitle.offsetWidth;
-                            teamSubtitle.classList.add("animate-teamSlideUp");
-                            setTimeout(() => {
-                                teamTitle.classList.add("animate-teamSlideUp");
-                            }, 500);
-                        } else {
-                            teamSubtitle.classList.remove("animate-teamSlideUp");
-                            teamTitle.classList.remove("animate-teamSlideUp");
-                        }
-                    });
-                },
-                { threshold: 0.3 }
-            );
+            const teamObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        
+                        teamSubtitle.classList.add("animate-teamSlideUp");
+                        setTimeout(() => teamTitle.classList.add("animate-teamSlideUp"), 500);
+
+                
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
 
             teamObserver.observe(teamSection);
         });
