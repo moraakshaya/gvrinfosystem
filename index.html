@@ -620,65 +620,69 @@
         </div>
     </section> -->
 
-<section
-    class="relative w-full rounded-b-[10px] flex flex-col justify-center items-center px-6 md:px-16 pt-20 md:pt-[13%] pb-10 overflow-hidden">
+    <section
+        class="relative w-full rounded-b-[10px] flex flex-col justify-center items-center px-6 md:px-16 pt-20 pb-10 md:pt-[8%] md:pb-[5%] mt-10  mb-5 md:mb-10 overflow-hidden">
 
-    <!-- Background Image Carousel -->
-    <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div class="carousel-images w-full h-full absolute top-0 left-0">
-            <img src="./assests/it-solutions-03.jpg" alt="Banner 1" class="w-full h-full object-cover absolute top-0 left-0 opacity-100 transition-opacity duration-1000">
-            <img src="./assests/it-solutions-06.jpeg" alt="Banner 2" class="w-full h-full object-cover absolute top-0 left-0 opacity-0 transition-opacity duration-1000">
-            <img src="./assests/it-solutions-04.png" alt="Banner 3" class="w-full h-full object-cover absolute top-0 left-0 opacity-0 transition-opacity duration-1000">
+        <!-- Background Image Carousel -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+            <div class="carousel-images w-full h-full absolute top-0 left-0">
+                <img src="./assests/it-solutions-03.jpg" alt="Banner 1"
+                    class="w-full h-full object-cover absolute top-0 left-0 opacity-100 transition-opacity duration-1000">
+                <img src="./assests/it-solutions-06.jpeg" alt="Banner 2"
+                    class="w-full h-full object-cover absolute top-0 left-0 opacity-0 transition-opacity duration-1000">
+                <img src="./assests/it-solutions-04.png" alt="Banner 3"
+                    class="w-full h-full object-cover absolute top-0 left-0 opacity-0 transition-opacity duration-1000">
+            </div>
         </div>
-    </div>
-    <div class="absolute top-0 left-0 w-full h-full bg-[black]/70 z-0"></div>
-    <div class="relative z-10 w-full max-w-6xl text-left text-white flex flex-col space-y-3 md:space-y-6">
+        <div class="absolute top-0 left-0 w-full h-full bg-[black]/70 z-0"></div>
+        <div class="relative z-10 w-full max-w-6xl text-left text-white flex flex-col space-y-3 md:space-y-6">
 
-        <h2 class="text-lg md:text-xl font-medium opacity-0 animate-slide-in" style="animation-delay: 0.5s;">
-            👋 Hi We <span class="text-[#f5a222] text-2xl md:text-2xl font-bold animate-roll-down">Are GVR</span>
-        </h2>
+            <h2 class="text-lg md:text-xl font-medium opacity-0 animate-slide-in" style="animation-delay: 0.5s;">
+                👋 Hi We <span class="text-[#f5a222] text-2xl md:text-2xl font-bold animate-roll-down">Are GVR</span>
+            </h2>
 
-        <h1 class="text-3xl md:text-5xl font-extrabold leading-snug opacity-0 animate-slide-in"
-            style="animation-delay: 1.5s;">
-            Grow your Business <br>
-            Organic & IT Solution Technology
-        </h1>
+            <h1 class="text-3xl md:text-5xl font-extrabold opacity-0 animate-slide-in"
+                style="animation-delay: 1.5s; line-height: 1.2;">
+                Grow your Business <br>
+                Organic & IT Solution Technology
+            </h1>
 
-        <p class="text-gray-200 text-base md:text-lg max-w-xl opacity-0 animate-fade-in"
-            style="animation-delay: 2.5s;">
-            In today’s competitive business, the demand for efficient and cost-effective IT
-            solutions has never been more critical.
-        </p>
+            <p class="text-gray-200 text-base md:text-lg max-w-xl opacity-0 animate-fade-in"
+                style="animation-delay: 2.5s;">
+                In today’s competitive business, the demand for efficient and cost-effective IT
+                solutions has never been more critical.
+            </p>
 
-        <div class="opacity-0 animate-pop-up" style="animation-delay: 3.5s;">
-            <a href="contact"
-                class="banner-btn text-[#f5a222] font-bold border border-[#f5a222] bg-[#102e62] group animate-float px-3 py-2 text-sm md:px-4 md:py-2 md:text-lg">
-                <span class="banner-btn-content">Get Started</span>
-                <span class="banner-btn-arrow">
-                    <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="2"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0l-6 6m6-6l6 6" />
-                    </svg>
-                </span>
-            </a>
+            <div class="opacity-0 animate-pop-up" style="animation-delay: 3.5s;">
+                <a href="contact"
+                    class="banner-btn text-[#f5a222] hover:text-[#102e62] font-bold border border-[#f5a222] bg-[#102e62] hover:bg-[#f5a222] group 
+                    animate-float md:mt-4 px-3 py-2 text-sm md:px-4 md:py-2 md:text-lg">
+                    <span class="banner-btn-content">Get Started</span>
+                    <span class="banner-btn-arrow">
+                        <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0l-6 6m6-6l6 6" />
+                        </svg>
+                    </span>
+                </a>
+            </div>
+
         </div>
+    </section>
+    <script>
+        const images = document.querySelectorAll('.carousel-images img');
+        let current = 0;
 
-    </div>
-</section>
-<script>
-    const images = document.querySelectorAll('.carousel-images img');
-    let current = 0;
+        setInterval(() => {
+            images[current].classList.remove('opacity-100');
+            images[current].classList.add('opacity-0');
 
-    setInterval(() => {
-        images[current].classList.remove('opacity-100');
-        images[current].classList.add('opacity-0');
+            current = (current + 1) % images.length;
 
-        current = (current + 1) % images.length;
-
-        images[current].classList.remove('opacity-0');
-        images[current].classList.add('opacity-100');
-    }, 5000); 
-</script>
+            images[current].classList.remove('opacity-0');
+            images[current].classList.add('opacity-100');
+        }, 5000); 
+    </script>
 
 
 
@@ -787,7 +791,7 @@
         }
     </style>
     <section id="brand-logo-section"
-        class="relative w-full overflow-hidden mx-auto pt-12 pb-0 md:pb-5 text-center bg-none">
+        class="relative w-full overflow-hidden mx-auto pt-5 pb-0 md:pb-5 text-center bg-none">
         <div class="relative z-10">
             <h2 class="brand-title text-2xl md:text-4xl font-bold text-black opacity-0 font-['EB Garamond']">
                 Brands We Collaborate With
@@ -865,73 +869,70 @@
 
 
     <!-- ABOUT GVR SECTION -->
-    <section id="about-gvr-section" class="relative w-full bg-none">
-        <div
-            class="relative z-10 max-w- mx-auto px-6 md:px-5 py-0 md:py-5 flex flex-col md:flex-row overflow-hidden items-center gap-6 md:gap-0">
+    <section id="about-gvr-section" class="relative w-full py-10 md:py-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-5 px-3 md:px-6">
 
             <!-- Left Content -->
-            <div class="flex-1 md:pl-[8%] gvr-left-content font-['EB Garamond']">
-                <h3 class="gvr-subtitle text-xl md:text-3xl font-semibold text-black mb-2">
+            <div class="md:w-1/2 space-y-2 md:space-y-5 font-['EB Garamond'] gvr-left-content">
+                <h3 class="text-2xl md:text-3xl font-semibold text-black gvr-subtitle">
                     We are <span class="text-[#f5a222]">GVR</span>
                 </h3>
 
-                <h2 class="gvr-title text-3xl md:text-4xl font-bold text-black mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-black leading-snug gvr-title">
                     Our Commitment to Client Satisfaction
                 </h2>
 
-                <p class="gvr-para text-gray-800 md:text-lg mb-4 max-w-md">
+                <p class="text-gray-800 text-base md:text-lg max-w-md gvr-para">
                     At GVR, our commitment to client satisfaction is at the core of everything we do.
                     We understand clients' success.
                 </p>
 
-                <ul class="gvr-keypoints text-gray-800 mb-6 md:text-lg list-disc list-inside space-y-1">
+                <ul class="list-disc list-inside space-y-2 text-gray-800 text-base md:text-lg gvr-keypoints">
                     <li>Grow your business the right way.</li>
                     <li>Let business growth help your business grow.</li>
                     <li>Helping you to get better.</li>
                 </ul>
 
                 <a href="contact"
-                    class="gvr-button relative inline-flex items-center px-6 py-3 rounded-full bg-[#102e62] border border-[#f5a222] text-[#f5a222] font-semibold overflow-hidden group">
-                    <span class="gvr-roll-text inline-block">Explore More</span>
-                    <span class="gvr-roll-arrow inline-block ml-3 transform rotate-45">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0l-6 6m6-6l6 6" />
-                        </svg>
-                    </span>
+                    class="gvr-button inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#102e62] border border-[#f5a222] text-[#f5a222] font-semibold overflow-hidden group transition-all duration-300 hover:bg-[#f5a222] hover:text-[#102e62]">
+                    <span class="gvr-roll-text">Explore More</span>
+                    <svg class="gvr-roll-arrow w-5 h-5 transform rotate-45 group-hover:translate-x-1 transition-transform duration-300"
+                        fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0l-6 6m6-6l6 6" />
+                    </svg>
                 </a>
             </div>
-            <!-- Right Auto-Slide Carousel -->
-            <div class="flex-1 gvr-right-carousel opacity-0 translate-y-6">
-                <div
-                    class="relative w-full aspect-[4/3] sm:aspect-[4/3] md:aspect-[16/9] overflow-hidden rounded-xl  bg-black">
-                    <div class="gvr-slides flex transition-transform duration-700 ease-in-out h-full">
+            <!-- Right Image Carousel -->
+            <div class="md:w-1/2 relative rounded-[20px] overflow-hidden gvr-right-carousel">
+                <div class="carousel relative w-full h-full  md:aspect-[14/9] overflow-hidden rounded-xl">
+                    <div class="gvr-slides flex transition-transform duration-700 ease-in-out">
 
                         <!-- Slide 1 -->
-                        <div class="slide min-w-full relative h-full flex items-center justify-center bg-black">
+                        <div class="slide min-w-full relative">
                             <img src="./assests/social-media-marketing-concept-marketing-with-applications.jpg"
-                                alt="Business Growth" class="max-w-full max-h-full object-contain rounded-xl">
-                            <div class="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 p-3 rounded-md">
-                                <h4 class="text-lg font-semibold">Business Growth</h4>
+                                alt="Business Growth" class="w-full h-full object-cover rounded-xl">
+                            <div class="absolute top-5 left-4 bg-black/50 text-white p-1 md:p-3 rounded-md">
+                                <h4 class="font-semibold text-md md:text-lg">Business Growth</h4>
                                 <p class="text-sm">Helping your business grow the right way.</p>
                             </div>
                         </div>
 
                         <!-- Slide 2 -->
-                        <div class="slide min-w-full relative h-full flex items-center justify-center bg-black">
+                        <div class="slide min-w-full relative">
                             <img src="./assests/portrait-successful-female-partners-shaking-hands.jpg"
-                                alt="Team Collaboration" class="max-w-full max-h-full object-contain rounded-xl">
-                            <div class="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 p-3 rounded-md">
-                                <h4 class="text-lg font-semibold">Team Collaboration</h4>
+                                alt="Team Collaboration" class="w-full h-full object-cover rounded-xl">
+                            <div class="absolute top-5 left-4 bg-black/50 text-white p-1 md:p-3 rounded-md">
+                                <h4 class="font-semibold text-md md:text-lg">Team Collaboration</h4>
                                 <p class="text-sm">Together, we achieve more.</p>
                             </div>
                         </div>
 
                         <!-- Slide 3 -->
-                        <div class="slide min-w-full relative h-full flex items-center justify-center bg-black">
+                        <div class="slide min-w-full relative">
                             <img src="./assests/representation-user-experience-interface-design.jpg"
-                                alt="Client Satisfaction" class="max-w-full max-h-full object-contain rounded-xl">
-                            <div class="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 p-3 rounded-md">
-                                <h4 class="text-lg font-semibold">Client Satisfaction</h4>
+                                alt="Client Satisfaction" class="w-full h-full object-cover rounded-xl">
+                            <div class="absolute top-5 left-4 bg-black/50 text-white p-1 md:p-3 rounded-md">
+                                <h4 class="font-semibold text-md md:text-lg">Client Satisfaction</h4>
                                 <p class="text-sm">Our priority is your success.</p>
                             </div>
                         </div>
@@ -939,8 +940,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </section>
     <style>
@@ -1487,8 +1486,8 @@
         }
     </style>
     <section id="svc-section"
-        class="relative flex flex-col items-center justify-center overflow-hidden text-center space-y-2 mt-10 bg-none" >
-        <h3 id="svc-subtitle" class="svc-subtitle text-lg sm:text-xl md:text-2xl text-black pt-5 md:pt-10" >
+        class="relative flex flex-col items-center justify-center overflow-hidden text-center space-y-2 mt-10 bg-none">
+        <h3 id="svc-subtitle" class="svc-subtitle text-lg sm:text-xl md:text-2xl text-black pt-5 md:pt-10">
             Our <span class="text-[#f5a222]">Specialize</span>
         </h3>
         <h2 id="svc-title" class="svc-title text-2xl sm:text-3xl md:text-4xl text-black font-bold pb-5">
